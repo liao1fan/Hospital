@@ -1,0 +1,125 @@
+*{
+    user-select: none;
+    /* 使用户无法选中文字 */
+}
+
+body {
+    background: url(../images/login1.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+    left: 50%;
+    margin-left: -200px;
+    /* absolute居中的一种方法 */
+    background-color: whitesmoke;
+    width: 450px;
+    height: 450px;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+
+}
+
+p {
+    font-size: 42px;
+    font-weight: 600;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+input {
+    background-color: whitesmoke;
+    width: 100%;
+    height: 48px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid silver;
+    outline: none;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn {
+    background-color: #59c2c5;
+    width: 38%;
+    height: 48px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+.btn:hover {
+    background-color: #59c2a0;
+}
+
+label {
+    color: grey;
+    font-size: 20px;
+    font-weight: 350;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.radio {
+    padding: 10px 0;
+    vertical-align: middle;
+    width: 25px;
+    margin: 0.5rem;
+  }
+  .radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+  }
+  .radio input[type="radio"] + .radio-label:before {
+    content: '';
+    background: #f4f4f4;
+    border-radius: 100%;
+    border: 1px solid #b4b4b4;
+    display: inline-block;
+    width: 1.4em;
+    height: 1.4em;
+    position: relative;
+    top: -0.2em;
+    margin-right: 1em;
+    vertical-align: top;
+    cursor: pointer;
+    text-align: center;
+    -webkit-transition: all 250ms ease;
+    transition: all 250ms ease;
+  }
+  .radio input[type="radio"]:checked + .radio-label:before {
+    background-color: #3197EE;
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+  }
+  .radio input[type="radio"]:focus + .radio-label:before {
+    outline: none;
+    border-color: #3197EE;
+  }
+  .radio input[type="radio"]:disabled + .radio-label:before {
+    box-shadow: inset 0 0 0 4px #f4f4f4;
+    border-color: #b4b4b4;
+    background: #b4b4b4;
+  }
+  .radio input[type="radio"] + .radio-label:empty:before {
+    margin-right: 0;
+  }
+
+  #footer{
+	position: fixed;
+    top: 95%;
+    left: 2%;
+}
+
+.foot_content{
+    color: ivory;
+    font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
+}
