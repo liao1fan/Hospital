@@ -13,19 +13,17 @@
     <head>
         <title>登录</title>
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript">
-            $(function () {
-                var state = ${requestScope.SignupState};
-
-                if(state == 1) { // 用户名已存在
-                    alert("用户名已存在，请使用其他用户名!");
-
-                } else {
-                    alert("注册成功");
-                    $(location).attr('href', 'login1.jsp');
-                }
-            });
-        </script>
+<%--        <script type="text/javascript">--%>
+<%--            $(function () {--%>
+<%--                var state = ${requestScope.SignupState};--%>
+<%--                if(state == 1) { // 用户名已存在--%>
+<%--                    alert("用户名已存在，请使用其他用户名!");--%>
+<%--                } else {--%>
+<%--                    alert("注册成功");--%>
+<%--                    $(location).attr('href', 'login1.jsp');--%>
+<%--                }--%>
+<%--            });--%>
+<%--        </script>--%>
     </head>
     <body>
         <form action="/signup" method="post" id="SignupForm" class="signup">

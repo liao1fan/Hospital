@@ -12,7 +12,7 @@
     <head>
         <base href="<%=basePath%>">
 
-        <title>My JSP 'register.jsp' starting page</title>
+        <title>医生信息</title>
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="expires" content="0">
@@ -21,16 +21,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/doctor_info.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
-        <div id="main">
+        <div id="doctorInfo">
             <%--侧边菜单栏--%>
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
@@ -53,30 +54,44 @@
             <br/>
 
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;查看医生信息
-                <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                    href="/logout">注销</a>
+                <a id="choose">当前位置:&nbsp;&nbsp;查看医生信息
+                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/logout">注销</a>
+                </a>
             </div>
 
             <div>
-                <h2>基本信息</h2><br/>
+                <h2>基本信息</h2>
                 <table class="table" cellspacing="0">
-                    医生姓名:
-                    <tr>${sessionScope.doctor.name}</tr>
-                    <br/><br/>
-                    医生年龄:
-                    <tr>${sessionScope.doctor.age}</tr>
-                    <br/><br/>
-                    医生性别:
-                    <tr>${sessionScope.doctor.sex}</tr>
-                    <br/><br/>
-                    医生职称:
-                    <tr>${sessionScope.doctor.title}</tr>
-                    <br/><br/>
-                    医生专长:
-                    <tr>${sessionScope.doctor.speciality}</tr>
-                    <br/><br/>
+                    <tr>
+                        <td>医生姓名:</td>
+                        <td>${sessionScope.doctor.name}</td>
+                    </tr>
+
+                    <tr>
+                        <td>医生年龄:</td>
+                        <td>${sessionScope.doctor.age}</td>
+                    </tr>
+
+                    <tr>
+                        <td>医生性别:</td>
+                        <td>${sessionScope.doctor.sex}</td>
+                    </tr>
+
+                    <tr>
+                        <td>医生职称:</td>
+                        <td>${sessionScope.doctor.title}</td>
+                    </tr>
+
+                    <tr>
+                        <td>医生专长:</td>
+                        <td>${sessionScope.doctor.speciality}</td>
+                    </tr>
+
                 </table>
+
+                <div class="line"></div>
+
                 <h2>个人简介</h2>
                 <p>
                     徐宝双，男，主任中医师，从事传染病治疗工作近20年，尤其在中西医结合治疗慢性乙肝阳转阴及重型肝炎、肝硬化等方面积累了丰富的临床经验，并在国家级及省级学术刊物上发表论文多篇，科研课题获市临床医疗成果奖。

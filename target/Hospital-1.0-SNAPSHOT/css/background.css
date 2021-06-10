@@ -1,0 +1,6 @@
+body {
+    /*background-color: #AAAAAA;*/
+    background: url(../images/hospital.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
