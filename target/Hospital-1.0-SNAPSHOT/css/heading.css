@@ -1,0 +1,17 @@
+.heading {
+    position: absolute;
+    top: 3%;
+    left: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    height: 45px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: 10px;
+    padding-left: 7px;
+    text-align: left;
+    margin-left: 0;
+    border-left: #3197EE solid 13px;
+}
