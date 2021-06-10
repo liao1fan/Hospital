@@ -26,11 +26,13 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String logintype = req.getParameter("logintype");
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String usertype = req.getParameter("type");
+
         switch (logintype) {
+
             case "登录":
+                String username = req.getParameter("username");
+                String password = req.getParameter("password");
+                String usertype = req.getParameter("type");
                 HttpSession session = (HttpSession)req.getSession();
                 Object object = loginService.login(username ,password , usertype );
 

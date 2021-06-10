@@ -86,4 +86,22 @@ public class DoctorStateRepositoryImpl implements DoctorStateRepository {
         }
         return doctor_state;
     }
+
+
+    @Override
+    public void changeNum(Integer doctorStateId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        connection = JDBCTools.getConnection();
+        String sql = "update  doctor_state set Num = Num - 1 where Doctor_state_id = ?"; // 挂号数量减1
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1 , doctorStateId);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection, statement, null);
+        }
+    }
 }

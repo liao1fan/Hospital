@@ -1,8 +1,6 @@
 package com.example.repository.Impl;
 
-import com.example.entity.Doctor;
-import com.example.entity.Doctor_state;
-import com.example.entity.Register;
+import com.example.entity.*;
 import com.example.repository.DoctorRepository;
 import com.example.repository.PatientRepository;
 import com.example.repository.RegisterRepository;
@@ -16,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class RegisterRepositoryImpl implements RegisterRepository {
 
@@ -57,9 +56,10 @@ public class RegisterRepositoryImpl implements RegisterRepository {
             statement.setInt(1 , doctorId);
             resultSet = statement.executeQuery();
             while(resultSet.next()) {
-                registerList.add(resultSet.getInt(1),new Register(patientRepository.findById(resultSet.getInt(2)),
-                        doctorRepository.findByDoctorId(resultSet.getInt(3)), resultSet.getDate(4),
-                        resultSet.getDouble(5),resultSet.getInt(6)));
+                registerList.add(
+                        new Register(resultSet.getInt(1) ,  patientRepository.findById(resultSet.getInt(2)),
+                                doctorRepository.findByDoctorId(resultSet.getInt(3)), resultSet.getDate(4),
+                                resultSet.getDouble(5),resultSet.getInt(6)));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -69,15 +69,18 @@ public class RegisterRepositoryImpl implements RegisterRepository {
         return registerList;
     }
 
+
+
     @Override
-    public void changeNum(Integer doctorStateId) {
+    public void changeState(Integer registerId, Integer state) {
         Connection connection = null;
         PreparedStatement statement = null;
         connection = JDBCTools.getConnection();
-        String sql = "update  doctor_state set Num = Num - 1 where Doctor_state_id = ?"; // 挂号数量减1
+        String sql = "update register set Register_state = ? where Register_id = ?";
         try {
             statement = connection.prepareStatement(sql);
-            statement.setInt(1 , doctorStateId);
+            statement.setInt(1 , state);
+            statement.setInt(2 , registerId);
             statement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -85,4 +88,31 @@ public class RegisterRepositoryImpl implements RegisterRepository {
             JDBCTools.release(connection, statement, null);
         }
     }
+
+    @Override
+    public Register findById(Integer registerId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        connection = JDBCTools.getConnection();
+        Register register = null;
+        String sql = "select * from Register where Register_id = ?";
+        ResultSet resultSet = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1 , registerId);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                register = new Register(resultSet.getInt(1) ,  patientRepository.findById(resultSet.getInt(2)),
+                        doctorRepository.findByDoctorId(resultSet.getInt(3)), resultSet.getDate(4),
+                        resultSet.getDouble(5),resultSet.getInt(6));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection, statement, resultSet);
+        }
+        return register;
+    }
+
+
 }

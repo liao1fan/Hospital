@@ -16,8 +16,10 @@
         <script type="text/javascript">
             $(function () {
                 var state = ${requestScope.SignupState};
+
                 if(state == 1) { // 用户名已存在
                     alert("用户名已存在，请使用其他用户名!");
+
                 } else {
                     alert("注册成功");
                     $(location).attr('href', 'login1.jsp');

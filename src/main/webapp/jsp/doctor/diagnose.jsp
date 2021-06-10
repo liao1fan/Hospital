@@ -41,7 +41,7 @@
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=caseHandle">病例管理</a>
+                <a href="#">病例管理</a>
             </div>
 
             <div>
@@ -51,45 +51,35 @@
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 菜单栏</span>
             </div>
             <br/>
-
+            <%-- 侧边栏end  --%>
             <br/>
-
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;处理挂号记录
+                当前位置:&nbsp;&nbsp;添加诊断信息
                 <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
                     href="/logout">注销</a>
             </div>
 
             <table class="table" cellspacing="0">
-                <tr>
-                    <td>患者姓名</td>
-                    <td>挂号时间</td>
-                    <td>审核状态</td>
-                    <td>操作</td>
-                </tr>
+                <tr>患者姓名:<input type="text" value="${treat.patient.name}" name="patient_name" readonly/></tr>
+                <br/><br/>
 
-
-                <c:forEach items="${registerList}" var="register">
+                <tr>患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/></tr>
+                <br/><br/>
+                <tr>患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/></tr>
+                <br/><br/>
+                <form action="/doctorHandle?method=addDiagnose&treatId=${treat.id}" method="post">
                     <tr>
-                        <td>${register.patient.name}</td>
-                        <td>${register.date}</td>
-                        <td>
-                            <c:if test="${register.state == 0}">
-                                <font color="#9acd32">未确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 1}">
-                                <font color="blue">已确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 2}">
-                                <font color="red">未通过</font>
-                            </c:if>
-                        </td>
-                        <td>
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=1&page=1">确认</a>&nbsp;
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=2&page=1">不予通过</a>
-                        </td>
+                        患者症状:<textarea name="symptom" cols="150" rows="10" align="center" >${treat.symptom}</textarea>
                     </tr>
-                </c:forEach>
+                    <br/><br/>
+                    <tr>
+                        诊断信息:<textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
+                    </tr>
+                    <br/><br/>
+                    <input type="submit" value="保存"/>
+                </form>
+
+
             </table>
         </div>
 

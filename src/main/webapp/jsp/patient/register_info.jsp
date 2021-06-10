@@ -26,7 +26,6 @@
             function jump() {
                 window.confirm('挂号成功! 将返回登录页面!');
                 window.location.href = '/register?method=addRegister&doctorStateId=${doctor_state.id}';
-                window.location.herf = '/register?method=changeNum&doctorStateId=${doctor_state.id}';
                 window.location.href = 'login1.jsp';
             }
         </script>

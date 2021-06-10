@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ page import="com.example.entity.Register" %>
+<%@ page import="com.example.entity.Doctor" %>
+<%@ page import="com.example.entity.Treat" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <%
@@ -41,7 +42,7 @@
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=caseHandle">病例管理</a>
+                <a href="#">病例管理</a>
             </div>
 
             <div>
@@ -52,46 +53,35 @@
             </div>
             <br/>
 
-            <br/>
-
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;处理挂号记录
+                当前位置:&nbsp;&nbsp;查看病例信息
                 <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
                     href="/logout">注销</a>
             </div>
-
-            <table class="table" cellspacing="0">
-                <tr>
-                    <td>患者姓名</td>
-                    <td>挂号时间</td>
-                    <td>审核状态</td>
-                    <td>操作</td>
-                </tr>
-
-
-                <c:forEach items="${registerList}" var="register">
+            <div>
+                <table class="table" cellspacing="0">
                     <tr>
-                        <td>${register.patient.name}</td>
-                        <td>${register.date}</td>
-                        <td>
-                            <c:if test="${register.state == 0}">
-                                <font color="#9acd32">未确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 1}">
-                                <font color="blue">已确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 2}">
-                                <font color="red">未通过</font>
-                            </c:if>
-                        </td>
-                        <td>
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=1&page=1">确认</a>&nbsp;
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=2&page=1">不予通过</a>
-                        </td>
+                        <td>患者姓名</td>
+                        <td>看病时间</td>
+                        <td>患者症状</td>
+                        <td>操作</td>
                     </tr>
-                </c:forEach>
-            </table>
+
+
+                    <c:forEach items="${treatList}" var="treat">
+                        <tr>
+                            <td>${treat.patient.name}</td>
+                            <td>${treat.time}</td>
+                            <td>${treat.symptom}</td>
+                            <td>
+                                <a href="/doctorHandle?method=displayDiagnose&treatId=${treat.id}&page=1">编辑</a>&nbsp;
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </div>
         </div>
+
 
         <%@ include file="../../footer.jsp" %>
     </body>

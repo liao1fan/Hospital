@@ -104,11 +104,9 @@ public class RegisterServlet extends HttpServlet {
                 doctor_state = registerService.findByDoctorStateId(doctorStateId);
                 registerService.addRegister(patient.getId() , doctor_state.getDoctor().getId()  , doctor_state.getDate() ,
                         doctor_state.getFee() , 0 ); // state = 0 表示挂号成功但未处理
-                break;
-            case "changeNum":
-                doctorStateId = Integer.parseInt(req.getParameter("doctorStateId"));
                 registerService.changeNum(doctorStateId);
                 break;
+
         }
     }
 

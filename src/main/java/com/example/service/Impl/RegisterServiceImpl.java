@@ -64,6 +64,6 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public void changeNum(Integer doctorStateId) {
-        registerRepository.changeNum(doctorStateId);
+        doctorStateRepository.changeNum(doctorStateId);
     }
 }
