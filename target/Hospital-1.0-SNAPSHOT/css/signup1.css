@@ -4,7 +4,7 @@
 }
 
 body {
-    background: url(../images/signup1.jpg) no-repeat;
+    background: url(../images/hospital.jpg) no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -37,7 +37,7 @@ p {
   color: darkblue;
   text-align: left;
   font-size: 25px;
-  font-weight: 350;
+  font-weight: 300;
   font-family:Arial, Helvetica, sans-serif;
 }
 
@@ -86,18 +86,20 @@ select{
 }
 
 #submit {
-  border:1px #7F9DB9 solid;
-  margin-top: 30px;
-  vertical-align: center;
-  color: darkblue;
-  width: 35%;
-  height: 48px;
-  font-size: 22px;
-  font-weight: 350;
-  font-family: Arial, Helvetica, sans-serif;
+    width: 35%;
+    height: 10%;
+    border: none;
+    border-radius: 25px;
+    margin-top: 30px;
+    vertical-align: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    background-color: whitesmoke;
+    color: darkblue;
 }
 
-#footer{
+#footer {
 	position: fixed;
     top: 95%;
     left: 2%;

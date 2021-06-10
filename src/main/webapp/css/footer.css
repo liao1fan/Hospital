@@ -1,15 +1,27 @@
-#foot_main{
-	width: 978px;
-	height: 138px;
-}
+/*#foot_main{*/
+/*	width: 978px;*/
+/*	height: 138px;*/
+/*}*/
 
-#foot_title{
-	width: 100%;
-	height: 10px;
-	background: url(../images/copyright_t.gif);
+/*#foot_title{*/
+/*	width: 100%;*/
+/*	height: 10px;*/
+/*	background: url(../images/copyright_t.gif);*/
+/*}*/
+
+/*.foot_content{*/
+/*	text-align: center;*/
+/*	margin-top: 10px;*/
+/*}*/
+
+#footer{
+	position: fixed;
+	top: 95%;
+	left: 2%;
 }
 
 .foot_content{
-	text-align: center;
-	margin-top: 10px;
+	color: ivory;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
 }

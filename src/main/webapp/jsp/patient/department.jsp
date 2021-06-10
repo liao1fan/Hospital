@@ -20,6 +20,8 @@
 <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
         <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/heading.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 
@@ -57,25 +59,22 @@
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;选择科室
-                <div id="readerBlock">欢迎回来&nbsp;: <a
-                        href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a></div>
-            </div>
-            <div class="img_block">
-                <img src="../../images/main_booksort.gif" class="img"/>
+                <a id="choose">当前位置:&nbsp;&nbsp;选择科室
+                    <div id="readerBlock">欢迎回来&nbsp;: <a class="a"
+                            href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a class="a"
+                            href="/logout">注销</a></div>
+                </a>
             </div>
 
-            <h1>选择科室</h1><br/>
             <table class="table" cellspacing="0">
                 <tr>
-                    <td>科室名称</td>
-                    <td>科室电话</td>
-                    <td>操作</td>
+                    <td id="first">科室名称</td>
+                    <td id="first">科室电话</td>
+                    <td id="first">操作</td>
                 </tr>
 
                 <c:forEach items="${list}" var="department">
