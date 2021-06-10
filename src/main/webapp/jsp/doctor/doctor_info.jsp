@@ -22,13 +22,14 @@
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
         <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <%--侧边菜单栏--%>

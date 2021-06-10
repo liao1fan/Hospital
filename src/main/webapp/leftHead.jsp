@@ -3,7 +3,7 @@
 <script type="text/javascript">
     /*打开侧栏，修改侧栏宽度，主体左跨度、背景透明度*/
     function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("mySidenav").style.width = "260px";
         // document.getElementById("main").style.marginLeft = "250px";
         //document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
     }
