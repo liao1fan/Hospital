@@ -13,8 +13,6 @@
 </head>
     <link href="css/heading.css" rel="stylesheet">
 <body>
-    <div class="heading_div">
-        <p class="heading">社区医院管理系统</p>
-    </div>
+    <p class="heading">社区医院管理系统</p>
 </body>
 </html>
