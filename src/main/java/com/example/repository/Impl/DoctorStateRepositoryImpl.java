@@ -22,7 +22,7 @@ public class DoctorStateRepositoryImpl implements DoctorStateRepository {
         ResultSet resultSet = null;
         List<Doctor_state> doctorStateList = new ArrayList<>();
         connection = JDBCTools.getConnection();
-        String sql = "select * from doctor_state where Doctor_id = ? group by date;";
+        String sql = "select * from doctor_state where Doctor_id = ?";
 
         PreparedStatement statement1 = null;
         ResultSet resultSet1 = null;

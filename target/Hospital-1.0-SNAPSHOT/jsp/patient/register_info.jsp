@@ -19,7 +19,9 @@
         <meta http-equiv="description" content="This is my page">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/register_info.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/readerBlock.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
@@ -33,19 +35,18 @@
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;<a href="/register">选择科室</a>-><a href="/register?method=findAllDoctor&departmentId=${departmentId}">选择日期和医生</a>->确认挂号
-                <div id="readerBlock">欢迎回来&nbsp;: <a
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;<a href="/register" id="select1">选择科室</a>->
+                    <a href="/register?method=findAllDoctor&departmentId=${departmentId}" id="select2">选择日期和医生</a>->确认挂号
+                </div>
+                <div class="readerBlock2">欢迎回来&nbsp;: <a
                         href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
                         href="/logout">注销</a></div>
             </div>
-            <div class="img_block">
-                <img src="../../images/main_booksort.gif" class="img"/>
-            </div>
-
 
             <center>
                 <h2>挂号信息</h2><br/>
