@@ -76,7 +76,7 @@
                     <br/>
 
                     <tr>
-                        <td>挂号费:</td>
+                        <td>挂号费用:</td>
                         <td>${doctor_state.fee}</td>
                     </tr>
                     <br/>
