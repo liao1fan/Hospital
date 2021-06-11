@@ -1,0 +1,73 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+    position: absolute;
+    top: 50%;
+    margin-top: -300px;
+    left: 50%;
+    margin-left: -34%;
+    /* absolute居中的一种方法 */
+    background-color: whitesmoke;
+    width: 70%;
+    height: 65%;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+}
+
+
+#select1 {
+    color: #3197EE;
+}
+
+#select2 {
+    color: #3197EE;
+}
+
+
+h2 {
+    margin-bottom: 20px;
+}
+
+table {
+    position: relative;
+    margin-top: -10%;
+    padding-bottom: 6%;
+}
+
+tr {
+    text-align: right;
+}
+
+td {
+    cursor: pointer;
+    height:40px;
+    vertical-align: center;
+    border-bottom: 1px solid #AAAAAA;
+    color: #4f6b72;
+    font-size: 19px;
+}
+
+table tr:hover{
+    background-color: #F0F0F0;
+}
+
+
+button { /* 按钮美化 */
+    width: 270px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 3px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+}
+button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
