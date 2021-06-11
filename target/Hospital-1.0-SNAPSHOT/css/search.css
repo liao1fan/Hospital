@@ -1,0 +1,39 @@
+.searcher {
+    background: rgba(255, 255, 255, 0);
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 6rem;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.searcher-main {
+    background: #F4F4F4;
+    position: absolute;
+    left: 50%;
+    top: 1.2rem;
+    margin-left: -45%;
+    border-radius: 1.6rem;
+    width: 80%;
+    height: 3rem;
+    line-height: 3rem;
+}
+
+.searcher-text {
+    width: 80%;
+    text-align: center;
+    border: none;
+    outline: none;
+    background: #F4F4F4;
+}
+
+.searcher-cancel {
+    position: absolute;
+    width: 10%;
+    height: 3rem;
+    line-height: 3rem;
+    color: #929292;
+    top: 1.2rem;
+    right: 1rem;
+}
