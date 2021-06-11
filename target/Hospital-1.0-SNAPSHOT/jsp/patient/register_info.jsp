@@ -51,21 +51,36 @@
             <center>
                 <h2>挂号信息</h2><br/>
                 <table class="table" cellspacing="0">
-                    就诊日期:
-                    <tr>${doctor_state.date}</tr>
-                    <br/><br/>
-                    就诊科室:
-                    <tr>${departmentName}</tr>
-                    <br/><br/>
-                    医生姓名:
-                    <tr>${doctor_state.doctor.name}</tr>
-                    <br/><br/>
-                    医生职称:
-                    <tr>${doctor_state.doctor.title}</tr>
-                    <br/><br/>
-                    挂号费:
-                    <tr>${doctor_state.fee}</tr>
-                    <br/><br/>
+                    <tr>
+                        <td>就诊日期:</td>
+                        <td>${doctor_state.date}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>就诊科室:</td>
+                        <td>${departmentName}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>医生姓名:</td>
+                        <td>${doctor_state.doctor.name}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>医生职称:</td>
+                        <td>${doctor_state.doctor.title}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>挂号费:</td>
+                        <td>${doctor_state.fee}</td>
+                    </tr>
+                    <br/>
+
                 </table>
                 <button id="btn" onclick=jump()>
                     确认挂号

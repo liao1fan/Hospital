@@ -33,57 +33,42 @@ h2 {
     margin-bottom: 20px;
 }
 
-#state {
-    width: 240px;
-    height: 34px;
-    background-color: #ffffff;
-    border: solid 1px #dcdcdc;
-    font-size: 14px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: normal;
-    color: #3d3d3d;
-    padding-left: 10px;
-    -webkit-appearance: none;
-    border-radius: 15px;
+table {
+    position: relative;
+    margin-top: -10%;
+    padding-bottom: 6%;
 }
 
-select {
-    background-color: #AAAAAA;
-    background-position: 222px 9px;
-    font-size: 12px;
-    color: #3d3d3d;
-    background-repeat: no-repeat;
+tr {
+    text-align: right;
 }
 
-.table{
-    width:100%;
-    font-size: 17px;
-    margin-top: 15px;
-}
-
-
-table tr{
+td {
     cursor: pointer;
+    height:40px;
+    vertical-align: center;
+    border-bottom: 1px solid #AAAAAA;
+    color: #4f6b72;
+    font-size: 19px;
 }
 
 table tr:hover{
     background-color: #F0F0F0;
 }
 
-td {
-    height:40px;
-    text-align: center;
-    vertical-align: center;
-    border-right: 1px solid #C1DAD7;
-    border-bottom: 1px solid #C1DAD7;
-    background: #fff;
-    padding: 6px 6px 6px 12px;
-    color: #4f6b72;
+
+button { /* 按钮美化 */
+    width: 270px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 3px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+}
+button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
 }
 
-.first {
-    font-size: 18px;
-    color: yellowgreen;
-}
