@@ -19,27 +19,25 @@
         <meta http-equiv="description" content="This is my page">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/doctor.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;<a href="/register">选择科室</a>->选择日期和医生
-                <div id="readerBlock">欢迎回来&nbsp;:
-                    <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a href="/logout">注销</a>
+                <div id="readerBlock1">当前位置:&nbsp;&nbsp;<a href="/register" id="select">选择科室</a>->选择日期和医生</div>
+                <div id="readerBlock2">欢迎回来&nbsp;:
+                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a href="/logout">注销</a>
                 </div>
             </div>
-            <div class="img_block">
-                <img src="../../images/main_booksort.gif" class="img"/>
-            </div>
 
-            <h2>选择日期和医生</h2><br/>
+            <h2>选择日期和医生</h2>
 
             <select id="state" onchange="self.location.href=options[selectedIndex].value">
                 <c:forEach items="${doctorStateList}" var="state">
@@ -58,13 +56,13 @@
 
             <table class="table" cellspacing="0">
                 <tr>
-                    <td>医生姓名</td>
-                    <td>医生职称</td>
-                    <td>医生专长</td>
-                    <td>号码剩余</td>
-                    <td>挂号费用</td>
-                    <td>日期</td>
-                    <td>操作</td>
+                    <td class="first">医生姓名</td>
+                    <td class="first">医生职称</td>
+                    <td class="first">医生专长</td>
+                    <td class="first">号码剩余</td>
+                    <td class="first">挂号费用</td>
+                    <td class="first">日期</td>
+                    <td class="first">操作</td>
                 </tr>
 
                 <c:forEach items="${doctorStateDefault}" var="doctorState">

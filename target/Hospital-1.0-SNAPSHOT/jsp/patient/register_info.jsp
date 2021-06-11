@@ -19,7 +19,9 @@
         <meta http-equiv="description" content="This is my page">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/register_info.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/readerBlock.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
@@ -33,38 +35,52 @@
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;<a href="/register">选择科室</a>-><a href="/register?method=findAllDoctor&departmentId=${departmentId}">选择日期和医生</a>->确认挂号
-                <div id="readerBlock">欢迎回来&nbsp;: <a
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;<a href="/register" id="select1">选择科室</a>->
+                    <a href="/register?method=findAllDoctor&departmentId=${departmentId}" id="select2">选择日期和医生</a>->确认挂号
+                </div>
+                <div class="readerBlock2">欢迎回来&nbsp;: <a
                         href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
                         href="/logout">注销</a></div>
             </div>
-            <div class="img_block">
-                <img src="../../images/main_booksort.gif" class="img"/>
-            </div>
-
 
             <center>
                 <h2>挂号信息</h2><br/>
                 <table class="table" cellspacing="0">
-                    就诊日期:
-                    <tr>${doctor_state.date}</tr>
-                    <br/><br/>
-                    就诊科室:
-                    <tr>${departmentName}</tr>
-                    <br/><br/>
-                    医生姓名:
-                    <tr>${doctor_state.doctor.name}</tr>
-                    <br/><br/>
-                    医生职称:
-                    <tr>${doctor_state.doctor.title}</tr>
-                    <br/><br/>
-                    挂号费:
-                    <tr>${doctor_state.fee}</tr>
-                    <br/><br/>
+                    <tr>
+                        <td>就诊日期:</td>
+                        <td>${doctor_state.date}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>就诊科室:</td>
+                        <td>${departmentName}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>医生姓名:</td>
+                        <td>${doctor_state.doctor.name}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>医生职称:</td>
+                        <td>${doctor_state.doctor.title}</td>
+                    </tr>
+                    <br/>
+
+                    <tr>
+                        <td>挂号费用:</td>
+                        <td>${doctor_state.fee}</td>
+                    </tr>
+                    <br/>
+
                 </table>
                 <button id="btn" onclick=jump()>
                     确认挂号
