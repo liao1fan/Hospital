@@ -36,17 +36,20 @@
 	margin-bottom: 50px;
 }
 
-#choose {
-	text-align: left;
-	vertical-align: center;
-	margin-left: -300px;
-	font-size: 22px;
-	font-weight: 300;
-}
-
 #readerBlock {
 	text-align: right;
 	margin-right: 500px;
+}
+
+
+.readerBlock1 {
+	float: left;
+	margin-left: 60px;
+}
+
+.readerBlock2 {
+	float: right;
+	margin-right: 100px;
 }
 
 .a {
@@ -98,7 +101,6 @@ td {
 #pageControl{
 	width: 100%;
 	height: auto;
-	position: relative;
 	position:absolute;
 	bottom:10px;
 	font-size: 13px;
@@ -126,12 +128,3 @@ td {
 	width: 96%;
 }
 
-#readerBlock{
-	width:150px;
-	height: 100%;
-	float: right;
-	margin-right: 30px;
-	text-align: center;
-	line-height: 30px;
-	font-size: 13px;
-}
