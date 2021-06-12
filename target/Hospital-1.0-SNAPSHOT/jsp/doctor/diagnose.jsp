@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ page import="com.example.entity.Doctor" %>
+<%@ page import="com.example.entity.Register" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <%
@@ -12,7 +12,7 @@
     <head>
         <base href="<%=basePath%>">
 
-        <title>医生信息</title>
+        <title>My JSP 'register.jsp' starting page</title>
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="expires" content="0">
@@ -21,28 +21,27 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/doctor_info.css" type="text/css" rel="stylesheet">
-        <link href="../../css/background.css" rel="stylesheet">
-
+        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <%--        <link href="../../css/background.css" type="text/css" rel="stylesheet">--%>
+        <link href="../../css/heading.css" type="text/css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../heading.jsp" %>
+        <%@ include file="../../top.jsp" %>
 
-        <div id="doctorInfo">
+        <div id="main">
             <%--侧边菜单栏--%>
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
                 <a href="/doctorHandle">医生信息</a>
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=caseHandle">病例管理</a>
+                <a href="/doctorHandle?method=RegisterHandle">病例管理</a>
             </div>
 
             <div>
@@ -52,53 +51,48 @@
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 菜单栏</span>
             </div>
             <br/>
-
+            <%-- 侧边栏end  --%>
+            <br/>
             <div class="navigation">
-                <a id="choose">当前位置:&nbsp;&nbsp;查看医生信息
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a>
-                </a>
+                当前位置:&nbsp;&nbsp;添加诊断信息
+                <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
+                    href="/logout">注销</a>
             </div>
 
-            <div>
-                <h2>基本信息</h2>
-                <table class="table" cellspacing="0">
+            <table class="table" cellspacing="0">
+                <tr>患者姓名:<input type="text" value="${treat.patient.name}" name="patient_name" readonly/></tr>
+                <br/><br/>
+
+                <tr>患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/></tr>
+                <br/><br/>
+                <tr>患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/></tr>
+                <br/><br/>
+                <form action="/doctorHandle?method=addDiagnose&treatId=${treat.id}" method="post">
                     <tr>
-                        <td>医生姓名:</td>
-                        <td>${sessionScope.doctor.name}</td>
+                        患者症状:<textarea name="symptom" cols="150" rows="10" align="center">${treat.symptom}</textarea>
                     </tr>
-
+                    <br/><br/>
                     <tr>
-                        <td>医生年龄:</td>
-                        <td>${sessionScope.doctor.age}</td>
+                        诊断信息:<textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
                     </tr>
-
+                    <br/><br/>
                     <tr>
-                        <td>医生性别:</td>
-                        <td>${sessionScope.doctor.sex}</td>
+                        处方信息:<textarea name="drug_info" cols="150" rows="10" align="center">
+                            <c:forEach items="${drugInfoList}" var="drugInfo">
+                                ${drugInfo}
+                            </c:forEach>
+                    </textarea>
                     </tr>
+                    <br/><br/>
 
-                    <tr>
-                        <td>医生职称:</td>
-                        <td>${sessionScope.doctor.title}</td>
-                    </tr>
+                    <input type="submit" value="保 存"/>
+                </form>
+                <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
 
-                    <tr>
-                        <td>医生专长:</td>
-                        <td>${sessionScope.doctor.speciality}</td>
-                    </tr>
+            </table>
 
-                </table>
 
-                <div class="line"></div>
-
-                <h2>个人简介</h2>
-                <p>
-                    徐宝双，男，主任中医师，从事传染病治疗工作近20年，尤其在中西医结合治疗慢性乙肝阳转阴及重型肝炎、肝硬化等方面积累了丰富的临床经验，并在国家级及省级学术刊物上发表论文多篇，科研课题获市临床医疗成果奖。
-                </p>
-            </div>
         </div>
-
 
         <%@ include file="../../footer.jsp" %>
     </body>
