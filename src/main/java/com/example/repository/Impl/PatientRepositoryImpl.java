@@ -61,7 +61,7 @@ public class PatientRepositoryImpl implements PatientRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCTools.release(connection , statement , null);
+            JDBCTools.release(connection , statement , resultSet);
         }
         return state;
     }

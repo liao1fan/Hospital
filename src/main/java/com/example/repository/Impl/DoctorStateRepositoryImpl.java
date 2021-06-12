@@ -49,6 +49,7 @@ public class DoctorStateRepositoryImpl implements DoctorStateRepository {
             throwables.printStackTrace();
         } finally {
             JDBCTools.release(connection, statement, resultSet);
+            JDBCTools.release(null, statement1, resultSet1);
         }
         return doctorStateList;
     }
@@ -83,6 +84,7 @@ public class DoctorStateRepositoryImpl implements DoctorStateRepository {
             throwables.printStackTrace();
         } finally {
             JDBCTools.release(connection, statement, resultSet);
+            JDBCTools.release(null, statement1, resultSet1);
         }
         return doctor_state;
     }

@@ -40,6 +40,8 @@ public class DoctorRepositoryImpl implements DoctorRepository {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , resultSet);
         }
         return doctor;
     }
@@ -140,7 +142,7 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            JDBCTools.release(connection , statement , null);
+            JDBCTools.release(connection , statement , resultSet);
         }
         return state;
     }

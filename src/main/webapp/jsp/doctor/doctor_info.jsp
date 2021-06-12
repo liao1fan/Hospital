@@ -36,13 +36,12 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">About</a>
-                <br/><br/>
+
                 <a href="/doctorHandle">医生信息</a>
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=RegisterHandle">病例管理</a>
+                <a href="/doctorHandle?method=caseHandle">病例管理</a>
             </div>
 
             <div>
