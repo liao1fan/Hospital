@@ -36,12 +36,11 @@
 	margin-bottom: 50px;
 }
 
-
-
 #readerBlock {
 	text-align: right;
 	margin-right: 500px;
 }
+
 
 .readerBlock1 {
 	float: left;
@@ -52,8 +51,6 @@
 	float: right;
 	margin-right: 100px;
 }
-
-
 
 .a {
 	font-size: 22px;
@@ -130,3 +127,4 @@ td {
 	margin-top: 40px;
 	width: 96%;
 }
+

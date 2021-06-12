@@ -72,6 +72,7 @@
                     欢迎回来&nbsp;: <a class="a" href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;
                     <a class="a" href="/logout">注销</a>
                 </div>
+                </a>
             </div>
 
             <table class="table" cellspacing="0">
