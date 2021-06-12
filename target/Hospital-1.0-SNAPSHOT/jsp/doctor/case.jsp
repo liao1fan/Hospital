@@ -22,14 +22,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <link href="../../css/case.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <%--侧边菜单栏--%>
@@ -52,9 +53,15 @@
             <br/>
 
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;查看病例信息
-                <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                    href="/logout">注销</a>
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;查看病例信息
+                </div>
+
+                <div class="readerBlock2">
+                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/logout">注销</a>
+                </div>
+
             </div>
             <div>
                 <table class="table" cellspacing="0">

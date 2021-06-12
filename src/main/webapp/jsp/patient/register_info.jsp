@@ -45,7 +45,7 @@
                 </div>
 
                 <div class="readerBlock2">欢迎回来&nbsp;: <a
-                        href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
                         href="/logout">注销</a>
                 </div>
             </div>

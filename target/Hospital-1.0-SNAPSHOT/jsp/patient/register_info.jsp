@@ -43,9 +43,11 @@
                     当前位置:&nbsp;&nbsp;<a href="/register" id="select1">选择科室</a>->
                     <a href="/register?method=findAllDoctor&departmentId=${departmentId}" id="select2">选择日期和医生</a>->确认挂号
                 </div>
+
                 <div class="readerBlock2">欢迎回来&nbsp;: <a
-                        href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a></div>
+                        href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/logout">注销</a>
+                </div>
             </div>
 
             <center>
