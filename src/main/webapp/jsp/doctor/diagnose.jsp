@@ -22,6 +22,8 @@
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
         <link href="../../css/index.css" type="text/css" rel="stylesheet">
+        <%--        <link href="../../css/background.css" type="text/css" rel="stylesheet">--%>
+        <link href="../../css/heading.css" type="text/css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
@@ -41,7 +43,7 @@
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="#">病例管理</a>
+                <a href="/doctorHandle?method=RegisterHandle">病例管理</a>
             </div>
 
             <div>
@@ -69,18 +71,29 @@
                 <br/><br/>
                 <form action="/doctorHandle?method=addDiagnose&treatId=${treat.id}" method="post">
                     <tr>
-                        患者症状:<textarea name="symptom" cols="150" rows="10" align="center" >${treat.symptom}</textarea>
+                        患者症状:<textarea name="symptom" cols="150" rows="10" align="center">${treat.symptom}</textarea>
                     </tr>
                     <br/><br/>
                     <tr>
                         诊断信息:<textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
                     </tr>
                     <br/><br/>
-                    <input type="submit" value="保存"/>
-                </form>
+                    <tr>
+                        处方信息:<textarea name="drug_info" cols="150" rows="10" align="center">
+                            <c:forEach items="${drugInfoList}" var="drugInfo">
+                                ${drugInfo}
+                            </c:forEach>
+                    </textarea>
+                    </tr>
+                    <br/><br/>
 
+                    <input type="submit" value="保 存"/>
+                </form>
+                <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
 
             </table>
+
+
         </div>
 
         <%@ include file="../../footer.jsp" %>

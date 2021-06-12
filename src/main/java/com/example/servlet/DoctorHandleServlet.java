@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +47,7 @@ public class DoctorHandleServlet extends HttpServlet {
                 if(state == 1) {
                     // 增加一条病例，即增加一条Treat记录
                     Map<Drug, Integer> drug_list = new HashMap<>();
-                    doctorHandleService.addTreat(register.getPatient()  , register.getDoctor() , "" , "" , drug_list);
+                    doctorHandleService.addTreat(register.getPatient()  , register.getDoctor() , "" , "" );
                 }
 
             case "caseHandle": // 病例管理
@@ -61,11 +62,31 @@ public class DoctorHandleServlet extends HttpServlet {
                 // 修改当前Treat记录，添加患者症状、诊断信息以及开处方
                 Integer treatId = Integer.parseInt(req.getParameter("treatId"));
                 Treat treat = doctorHandleService.findTreatById(treatId);
+                // 处方信息
+                List<GetDrug> getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
+                List<String> drugInfoList = new ArrayList<>();
+                for(GetDrug getDrug : getDrugList) {
+                    drugInfoList.add(getDrug.getDrugInfo());
+                }
+                req.setAttribute("drugInfoList" , drugInfoList);
+                req.setAttribute("getDrugList" , getDrugList);
                 req.setAttribute("treat" , treat);
                 req.getRequestDispatcher("/jsp/doctor/diagnose.jsp").forward(req , resp);
                 break;
-
-
+            case "getDrug": // 取药页面
+                List<Drug> drugList = doctorHandleService.findAllDrugs();  // 返回所有药品
+                treatId = Integer.parseInt(req.getParameter("treatId"));
+                req.setAttribute("treatId" , treatId);
+                req.setAttribute("drugList" , drugList);
+                getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
+                drugInfoList = new ArrayList<>();
+                for(GetDrug getDrug : getDrugList) {
+                    drugInfoList.add(getDrug.getDrugInfo());
+                }
+                req.setAttribute("drugInfoList" , drugInfoList);
+                req.setAttribute("getDrugList" , getDrugList);
+                req.getRequestDispatcher("/jsp/doctor/getDrug.jsp").forward(req , resp);
+                break;
 
         }
     }
@@ -88,14 +109,40 @@ public class DoctorHandleServlet extends HttpServlet {
                 Treat treat = doctorHandleService.findTreatById(treatId);
                 String symptom = req.getParameter("symptom");
                 String diagnose = req.getParameter("diagnose");
+
                 // 更新treat记录
                 doctorHandleService.updateDiagnose(treatId , symptom , diagnose);
-                req.setAttribute("treat" , treat);
+                treat = doctorHandleService.findTreatById(treatId);
 
+                // 处方信息
+                List<GetDrug> getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
+                List<String> drugInfoList = new ArrayList<>();
+                for(GetDrug getDrug : getDrugList) {
+                    drugInfoList.add(getDrug.getDrugInfo());
+                }
+                req.setAttribute("drugInfoList" , drugInfoList);
+                req.setAttribute("getDrugList" , getDrugList);
+
+                req.setAttribute("treat" , treat);
                 req.getRequestDispatcher("/jsp/doctor/diagnose.jsp").forward(req , resp);
-                // 开处方
 
                 break;
+            case "addDrug":
+                treatId = Integer.parseInt(req.getParameter("treatId"));
+                req.setAttribute("treatId" , treatId);
+                String drugName = req.getParameter("drugName");
+                Integer drugNum = Integer.parseInt(req.getParameter("drugNum"));
+                int i = 0;
+
+                doctorHandleService.addOneDrug(treatId , drugName , drugNum  );  // 添加一条取药记录
+                getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
+                drugInfoList = new ArrayList<>();
+                for(GetDrug getDrug : getDrugList) {
+                    drugInfoList.add(getDrug.getDrugInfo());
+                }
+                req.setAttribute("drugInfoList" , drugInfoList);
+                req.setAttribute("getDrugList" , getDrugList);
+                req.getRequestDispatcher("/jsp/doctor/getDrug.jsp").forward(req , resp);
 
         }
     }

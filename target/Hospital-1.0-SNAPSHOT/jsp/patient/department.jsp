@@ -56,10 +56,11 @@
         <%--			})--%>
         <%--		})--%>
         <%--	</script>--%>
+        <%@ include file="../../heading.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../heading.jsp" %>
+
 
         <div id="main">
             <div class="navigation">

@@ -1,6 +1,10 @@
 package com.example.service.Impl;
 
 import com.example.entity.*;
+import com.example.repository.DrugRepository;
+import com.example.repository.GetDrugRepository;
+import com.example.repository.Impl.DrugRepositoryImpl;
+import com.example.repository.Impl.GetDrugRepositoryImpl;
 import com.example.repository.Impl.RegisterRepositoryImpl;
 import com.example.repository.Impl.TreatRepositoryImpl;
 import com.example.repository.RegisterRepository;
@@ -15,6 +19,10 @@ public class DoctorHandleServiceImpl implements DoctorHandleService {
     private static RegisterRepository registerRepository = new RegisterRepositoryImpl();
 
     private static TreatRepository treatRepository = new TreatRepositoryImpl();
+
+    private static DrugRepository drugRepository = new DrugRepositoryImpl();
+
+    private static GetDrugRepository getDrugRepository = new GetDrugRepositoryImpl();
 
     @Override
     public List<Register> findByDoctor(Integer doctorId) {
@@ -32,22 +40,13 @@ public class DoctorHandleServiceImpl implements DoctorHandleService {
     }
 
     @Override
-    public void addTreat(Patient patient, Doctor doctor,  String symptom, String diagnose, Map<Drug , Integer> drug_list) {
-        String drug_info = "";
+    public void addTreat(Patient patient, Doctor doctor,  String symptom, String diagnose) {
 
-        Iterator<Map.Entry<Drug, Integer>> iterator = drug_list.entrySet().iterator();
-        Map.Entry<Drug, Integer> entry = null;
-        while(iterator.hasNext()){
-            drug_info += iterator.next().getKey().getName() + " * " + Integer.toString(iterator.next().getValue()) ;
-            if(iterator.hasNext()) {
-                drug_info += ";\n";
-            }
-        }
         // 获取确认时间
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
         Date date = new Date();// new Date()为获取当前系统时间
 
-        treatRepository.addTreat(patient , doctor , new java.sql.Timestamp(date.getTime()) , symptom , diagnose , drug_info);
+        treatRepository.addTreat(patient , doctor , new java.sql.Timestamp(date.getTime()) , symptom , diagnose);
     }
 
     @Override
@@ -63,5 +62,30 @@ public class DoctorHandleServiceImpl implements DoctorHandleService {
     @Override
     public void updateDiagnose(Integer treatId, String symptom, String diagnose) {
         treatRepository.updateDiagnose(treatId , symptom , diagnose);
+    }
+
+    @Override
+    public List<Drug> findAllDrugs() {
+        return drugRepository.findAllDrugs();
+    }
+
+
+    @Override
+    public Drug findDrugByName(String drugName) {
+        return drugRepository.findByName(drugName);
+    }
+
+    @Override
+    public void addOneDrug(Integer treatId, String drugName, Integer drugNum) {
+        Map<Drug , Integer> map = new HashMap<>();
+        Drug drug = drugRepository.findByName(drugName);
+        Treat treat = treatRepository.findById(treatId);
+        map.put(drug , drugNum);
+        getDrugRepository.add(drug.getId() , drugNum , treat.getTime() , treat.getId());
+    }
+
+    @Override
+    public List<GetDrug> findGetDrugByTreatId(Integer treatId) {
+        return getDrugRepository.findByTreatId(treatId);
     }
 }

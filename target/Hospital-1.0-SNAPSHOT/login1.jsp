@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>登录</title>
     <link rel="stylesheet" href="css/login1.css">
+    <link rel="stylesheet" href="css/footer.css">
 <%--    <script type="text/javascript" src="<%=path%>/js/jquery-3.3.1.min.js"></script>--%>
     <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">

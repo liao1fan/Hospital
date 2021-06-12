@@ -22,7 +22,7 @@
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
         <link href="../../css/doctor_info.css" type="text/css" rel="stylesheet">
-        <link href="../../css/background.css" rel="stylesheet">
+
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
@@ -42,7 +42,7 @@
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="#">病例管理</a>
+                <a href="/doctorHandle?method=RegisterHandle">病例管理</a>
             </div>
 
             <div>

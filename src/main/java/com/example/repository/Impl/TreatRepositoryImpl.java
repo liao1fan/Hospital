@@ -31,14 +31,12 @@ public class TreatRepositoryImpl implements TreatRepository {
             statement = connection.prepareStatement(sql);
             statement.setInt(1, doctorId );
             resultSet = statement.executeQuery();
-            Map<Drug , Integer> drug_list = new HashMap<>();
             while (resultSet.next()) {
                 treatList.add(new Treat(resultSet.getInt(1) ,
                         patientRepository.findById(resultSet.getInt(2)),
                         doctorRepository.findByDoctorId(resultSet.getInt(3)),
                         resultSet.getTimestamp(4),
-                        resultSet.getString(5),resultSet.getString(6) ,
-                        drug_list));
+                        resultSet.getString(5),resultSet.getString(6) ));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -49,11 +47,11 @@ public class TreatRepositoryImpl implements TreatRepository {
     }
 
     @Override
-    public void addTreat(Patient patient, Doctor doctor, java.sql.Timestamp time , String symptom, String diagnose, String drug_info) {
+    public void addTreat(Patient patient, Doctor doctor, java.sql.Timestamp time , String symptom, String diagnose) {
         Connection connection = null;
         PreparedStatement statement = null;
         connection = JDBCTools.getConnection();
-        String sql = "insert into treat(Patient_id, Doctor_id, Treat_dateTime ,symptom, Diagnose_info, Drug_info) values( ?, ? , ?, ? , ? , ?);";
+        String sql = "insert into treat(Patient_id, Doctor_id, Treat_dateTime ,symptom, Diagnose_info) values( ?, ? , ?, ? , ? );";
         try {
             statement = connection.prepareStatement(sql);
             statement.setInt(1 , patient.getId());
@@ -61,7 +59,6 @@ public class TreatRepositoryImpl implements TreatRepository {
             statement.setTimestamp(3 , time);
             statement.setString(4 ,symptom );
             statement.setString(5 , diagnose);
-            statement.setString(6 , drug_info);
             statement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -89,8 +86,8 @@ public class TreatRepositoryImpl implements TreatRepository {
                         patientRepository.findById(resultSet.getInt(2)),
                         doctorRepository.findByDoctorId(resultSet.getInt(3)),
                         resultSet.getTimestamp(4),
-                        resultSet.getString(5), resultSet.getString(6),
-                        new HashMap<>());
+                        resultSet.getString(5), resultSet.getString(6)
+                       );
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -105,7 +102,7 @@ public class TreatRepositoryImpl implements TreatRepository {
         Connection connection = null;
         PreparedStatement statement = null;
         connection = JDBCTools.getConnection();
-        String sql = "update treat set symptom = ? and diagnose = ? where Treat_id = ?";
+        String sql = "update treat set symptom = ? , Diagnose_info = ? where Treat_id = ?";
         try {
             statement = connection.prepareStatement(sql);
             statement.setString(1 , symptom);
@@ -119,4 +116,6 @@ public class TreatRepositoryImpl implements TreatRepository {
             JDBCTools.release(connection, statement, null);
         }
     }
+
+
 }

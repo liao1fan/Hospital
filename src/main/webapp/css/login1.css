@@ -112,14 +112,14 @@ label {
     margin-right: 0;
   }
 
-  #footer{
-	position: fixed;
-    top: 95%;
-    left: 2%;
-}
+/*  #footer{*/
+/*	position: fixed;*/
+/*    top: 95%;*/
+/*    left: 2%;*/
+/*}*/
 
-.foot_content{
-    color: ivory;
-    font-family: Arial, Helvetica, sans-serif;
-	text-align: left;
-}
+/*.foot_content{*/
+/*    color: ivory;*/
+/*    font-family: Arial, Helvetica, sans-serif;*/
+/*	text-align: left;*/
+/*}*/
