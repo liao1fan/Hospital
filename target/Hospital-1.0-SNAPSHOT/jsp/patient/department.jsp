@@ -64,10 +64,14 @@
 
         <div id="main">
             <div class="navigation">
-                <a id="choose">当前位置:&nbsp;&nbsp;选择科室
-                    <div id="readerBlock">欢迎回来&nbsp;: <a class="a"
-                            href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a class="a"
-                            href="/logout">注销</a></div>
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;选择科室
+                </div>
+
+                <div class="readerBlock2">
+                    欢迎回来&nbsp;: <a class="a" href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;
+                    <a class="a" href="/logout">注销</a>
+                </div>
                 </a>
             </div>
 
