@@ -21,16 +21,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
-        <%--        <link href="../../css/background.css" type="text/css" rel="stylesheet">--%>
-        <link href="../../css/heading.css" type="text/css" rel="stylesheet">
+        <link href="../../css/diagnose.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" type="text/css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <%--侧边菜单栏--%>
@@ -50,32 +49,35 @@
                 <script>openNav()</script>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 菜单栏</span>
             </div>
-            <br/>
-            <%-- 侧边栏end  --%>
-            <br/>
+
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;添加诊断信息
-                <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                    href="/logout">注销</a>
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;添加诊断信息
+                </div>
+
+                <div class="readerBlock2">
+                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/logout">注销</a>
+                </div>
             </div>
 
             <table class="table" cellspacing="0">
                 <tr>患者姓名:<input type="text" value="${treat.patient.name}" name="patient_name" readonly/></tr>
-                <br/><br/>
+                <br/>
 
                 <tr>患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/></tr>
-                <br/><br/>
+                <br/>
                 <tr>患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/></tr>
-                <br/><br/>
+                <br/>
                 <form action="/doctorHandle?method=addDiagnose&treatId=${treat.id}" method="post">
                     <tr>
                         患者症状:<textarea name="symptom" cols="150" rows="10" align="center">${treat.symptom}</textarea>
                     </tr>
-                    <br/><br/>
+                    <br/>
                     <tr>
                         诊断信息:<textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
                     </tr>
-                    <br/><br/>
+                    <br/>
                     <tr>
                         处方信息:<textarea name="drug_info" cols="150" rows="10" align="center">
                             <c:forEach items="${drugInfoList}" var="drugInfo">
@@ -83,7 +85,7 @@
                             </c:forEach>
                     </textarea>
                     </tr>
-                    <br/><br/>
+                    <br/>
 
                     <input type="submit" value="保 存"/>
                 </form>
