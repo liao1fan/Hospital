@@ -60,43 +60,86 @@
     cursor: pointer;     /* 鼠标样式*/
 }
 
-a:link { color: #06F; text-decoration: none; }/* 未访问的链接 */
-a:visited { color: #999; text-decoration: line-through; } /* 已访问的链接 */
-a:hover { color: #F00; text-decoration: underline; }/* 鼠标移动到链接上 */
-a:active { color: #F0F; } /* 选定的链接 */
+.aa:link { color: #06F; text-decoration: none; }/* 未访问的链接 */
+.aa:visited { color: #999; text-decoration: line-through; } /* 已访问的链接 */
+.aa:hover { color: #F00; text-decoration: underline; }/* 鼠标移动到链接上 */
+.aa:active { color: #F0F; } /* 选定的链接 */
 
-.table{
-    width:100%;
-    font-size: 20px;
-    margin-top: 15px;
-}
-
+/*.table{*/
+/*    width:100%;*/
+/*    font-size: 20px;*/
+/*    margin-top: 15px;*/
+/*}*/
 
 table tr{
     cursor: pointer;
+    width:100%;
+    font-size: 20px;
+    margin-top: 15px;
 }
 
 table tr:hover{
     background-color: #F0F0F0;
 }
 
-td {
-    height:40px;
+.patient {
     text-align: center;
     vertical-align: center;
-    border-right: 1px solid #C1DAD7;
-    border-bottom: 1px solid #C1DAD7;
-    background: #fff;
-    padding: 6px 6px 6px 12px;
     color: #4f6b72;
+    font-size: 17px;
+}
+
+.patient1 {
+    vertical-align: top;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+input{
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 6px 6px;
+    width: 7%;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-left: 30px;
+    color: dodgerblue;
+}
+
+input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius:12px;
+    width: 355px;
+    height: 100px;
+    padding: 10px;
+    margin-left: 30px;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+textarea:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
 }
 
 #first {
     font-size: 20px;
     color: yellowgreen;
 }
-
-
 
 #pageControl{
     width: 100%;

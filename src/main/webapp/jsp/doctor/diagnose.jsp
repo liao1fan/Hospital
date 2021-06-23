@@ -57,33 +57,56 @@
 
                 <div class="readerBlock2">
                     <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a>
+                        href="/logout" class="aa">注销</a>
                 </div>
             </div>
 
-            <table class="table" cellspacing="0">
-                <tr>患者姓名:<input type="text" value="${treat.patient.name}" name="patient_name" readonly/></tr>
+            <table cellspacing="0">
+                <tr>
+                    <div class="patient">患者姓名:
+                        <input type="text" value="${treat.patient.name}" name="patient_name" readonly/>
+                    </div>
+                </tr>
                 <br/>
 
-                <tr>患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/></tr>
+                <tr>
+                    <div class="patient">
+                        患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/>
+                    </div>
+                </tr>
                 <br/>
-                <tr>患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/></tr>
+
+                <tr>
+                    <div class="patient">
+                        患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/>
+                    </div>
+                </tr>
                 <br/>
+
                 <form action="/doctorHandle?method=addDiagnose&treatId=${treat.id}" method="post">
                     <tr>
-                        患者症状:<textarea name="symptom" cols="150" rows="10" align="center">${treat.symptom}</textarea>
+                        <div class="patient">
+                            <a class="patient1">患者症状:</a>
+                            <textarea name="symptom" cols="150" rows="10" align="center">${treat.symptom}</textarea>
+                        </div>
                     </tr>
                     <br/>
                     <tr>
-                        诊断信息:<textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
+                        <div class="patient">
+                            <a class="patient1">诊断信息:</a>
+                            <textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
+                        </div>
                     </tr>
                     <br/>
                     <tr>
-                        处方信息:<textarea name="drug_info" cols="150" rows="10" align="center">
-                            <c:forEach items="${drugInfoList}" var="drugInfo">
-                                ${drugInfo}
-                            </c:forEach>
-                    </textarea>
+                        <div class="patient">
+                            <a class="patient1">处方信息:</a>
+                            <textarea name="drug_info" cols="150" rows="10" align="center">
+                                <c:forEach items="${drugInfoList}" var="drugInfo">
+                                    ${drugInfo}
+                                </c:forEach>
+                                    </textarea>
+                        </div>
                     </tr>
                     <br/>
 
