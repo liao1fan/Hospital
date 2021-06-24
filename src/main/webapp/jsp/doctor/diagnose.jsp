@@ -111,9 +111,9 @@
                     <br/>
 
                     <input class="button" type="submit" value="保 存"/>
-                    <button class="button" onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
-                </form>
 
+                </form>
+                <button class="button" onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
             </table>
 
 
