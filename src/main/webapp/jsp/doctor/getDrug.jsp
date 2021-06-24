@@ -31,7 +31,6 @@
         <style>
             .qcdromodel {
                 width: 500px;
-                margin: 0 auto
             }
 
             .qc-dromodel {
@@ -90,24 +89,14 @@
                 <a action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
                     <section class="navigation">
 
-                        <div class="qcdromodel" style="margin-left: 5%;">
-                            <select class="" id="industryOf" name="industryOf" onclick="onezs();"
-                                    style="height: 24px;width: 170px;height: 30px;-moz-appearance: none;pointer-events: none;">
-                                <option value=""></option>
-                            </select>
-
-                            <a class="patient">药品名称:</a>
-                            <input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();"
-                                        style="height: 24px; width: 150px; position: absolute; left: 5%;"
-                                        placeholder="输入药品名称">
-                            <ul class="qc-dromodel" id="modedata"
-                                style="padding-left: 0px;margin-top: 0px;width: 170px;display: none;margin-left: -7px;">
-                                药品名称:<input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称"
-                                            style="height: 24px; width: 150px; position: absolute; left: 5%;top: 8px;">
-                                <ul class="qc-dromodel_1"
-                                    style="overflow: scroll;height: 300px;background-color: rgb(0, 188, 212);width: 100%;padding-left: 10px;display: block;">
+                        <div class="qcdromodel">
+                            <a id="drugName">药品名称:</a>
+                            <input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();" placeholder="输入药品名称">
+                            <ul class="qc-dromodel" id="modedata">
+                                <input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称">
+                                <ul class="qc-dromodel_1" id="medicine">
                                     <c:forEach items="${drugList}" var="drug">
-                                        <li><a href="javascript:;">${drug.name}</a></li>
+                                        <li><a href="javascript:;" id="drug">${drug.name}</a></li>
                                     </c:forEach>
                                 </ul>
                             </ul>
@@ -126,7 +115,7 @@
                     </select>
                     <br/>
                     <input class="button" type="submit" value="确认"/>
-                </form>
+                </a>
             </div>
                 <br/>
 
@@ -181,7 +170,6 @@
             // 下拉框里面内容收起
             $('.qc-dromodel li a').on('click', function (e) {
                 $("#onezs").css("display", "block");
-                $("#onezs").css("top", "8px");
                 $(this).parents('.qc-dromodel').hide().siblings('.qc-zsearch').removeClass('selected').removeClass('cli').val($(this).text());
                 e.stopPropagation();// 阻止事件冒泡
             });

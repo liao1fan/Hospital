@@ -65,30 +65,48 @@
 .aa:hover { color: #F00; text-decoration: underline; }/* 鼠标移动到链接上 */
 .aa:active { color: #F0F; } /* 选定的链接 */
 
-.table{
-    width:100%;
-    font-size: 17px;
-    margin-top: 15px;
-}
-
-
-table tr{
-    cursor: pointer;
-}
-
-table tr:hover{
-    background-color: #F0F0F0;
-}
-
-td {
-    height:40px;
-    text-align: center;
+#drugName {
+    position: absolute;
     vertical-align: center;
-    border-right: 1px solid #C1DAD7;
-    border-bottom: 1px solid #C1DAD7;
-    background: #fff;
-    padding: 6px 6px 6px 12px;
     color: #4f6b72;
+    font-size: 17px;
+    left: 12%;
+}
+
+#onezs {
+    position: absolute;
+    height: 30px;
+    width: 150px;
+    left: 20%;
+    top: 0%;
+}
+
+#twoxj {
+    position: absolute;
+    height: 30px;
+    width: 150px;
+    left: 20%;
+    top: 0%;
+}
+
+#medicine {
+    position: absolute;
+    left: 20%;
+    top: 70%;
+    overflow: scroll;
+    height: 150px;
+    background-color:white;
+    width: 14%;
+    display: block;
+    border-radius: 10px;
+    border: #ccc solid 1px;
+    text-align: left;
+}
+
+li {
+    text-align: left;
+    width: 68%;
+    border-bottom: #FBE5AC solid 1px;
 }
 
 select {
@@ -109,6 +127,17 @@ select {
     border-radius: 15px;
 }
 
+#drug {
+    font-size: 18px;
+    font-weight: 200;
+    color: black;
+    text-decoration: none;
+}
+
+#drug:hover {
+    color: royalblue;
+}
+
 #selectNum {
     width: 70px;
     margin-left: 20px;
@@ -122,7 +151,10 @@ select {
 }
 
 .patient1 {
-    vertical-align: top;
+    position: absolute;
+    margin-top: 32px;
+    margin-left: -65px;
+    vertical-align:center;
     text-decoration: none;
 }
 
