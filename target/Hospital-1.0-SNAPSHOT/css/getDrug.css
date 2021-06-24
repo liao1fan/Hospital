@@ -1,0 +1,237 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#main {
+    position: absolute;
+    top: 50%;
+    margin-top: -350px;
+    left: 50%;
+    margin-left: -34%;
+    /* absolute居中的一种方法 */
+    background-color: whitesmoke;
+    width: 70%;
+    height: 70%;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+}
+
+.navigation{
+    width:100%;
+    height: 30px;
+    position: relative;
+    left: 10px;
+    top:5px;
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*margin:0 auto;*/
+    font-size: 22px;
+    padding-bottom: 30px;
+    border-bottom: #3197EE solid 2px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+
+#readerBlock {
+    text-align: right;
+    margin-right: 500px;
+}
+
+
+.readerBlock1 {
+    float: left;
+    margin-left: 60px;
+}
+
+.readerBlock2 {
+    float: right;
+    margin-right: 100px;
+}
+
+.a {
+    font-size: 22px;
+    font-weight: 300;
+    text-decoration-style: double;
+    color: blue;
+    cursor: pointer;     /* 鼠标样式*/
+}
+
+.aa:link { color: #06F; text-decoration: none; }/* 未访问的链接 */
+.aa:visited { color: #999; text-decoration: line-through; } /* 已访问的链接 */
+.aa:hover { color: #F00; text-decoration: underline; }/* 鼠标移动到链接上 */
+.aa:active { color: #F0F; } /* 选定的链接 */
+
+.table{
+    width:100%;
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+
+table tr{
+    cursor: pointer;
+}
+
+table tr:hover{
+    background-color: #F0F0F0;
+}
+
+td {
+    height:40px;
+    text-align: center;
+    vertical-align: center;
+    border-right: 1px solid #C1DAD7;
+    border-bottom: 1px solid #C1DAD7;
+    background: #fff;
+    padding: 6px 6px 6px 12px;
+    color: #4f6b72;
+}
+
+select {
+    background-color: white;
+    background-position: 222px 9px;
+    color: #3d3d3d;
+    background-repeat: no-repeat;
+    width: 240px;
+    height: 34px;
+    border: solid 1px #dcdcdc;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    padding-left: 10px;
+    -webkit-appearance: none;
+    border-radius: 15px;
+}
+
+#selectNum {
+    width: 70px;
+    margin-left: 20px;
+}
+
+.patient {
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
+}
+
+.patient1 {
+    vertical-align: top;
+    text-decoration: none;
+}
+
+input{
+    outline-style: none ;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 6px 6px;
+    width: 7%;
+    font-size: 17px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-left: 25px;
+    color: dodgerblue;
+}
+
+input:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+textarea {
+    border: 1px solid #ccc;
+    border-radius:12px;
+    width: 355px;
+    height: 100px;
+    padding: 10px;
+    margin-left: 30px;
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+textarea:focus{
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+}
+
+button { /* 按钮美化 */
+    width: 130px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 3px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+    margin-left: 30px;
+}
+button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
+
+.button { /* 按钮美化 */
+    width: 100px; /* 宽度 */
+    height: 40px; /* 高度 */
+    border-width: 0px; /* 边框宽度 */
+    border-radius: 3px; /* 边框半径 */
+    background: #1E90FF; /* 背景颜色 */
+    cursor: pointer; /* 鼠标移入按钮范围时出现手势 */
+    outline: none; /* 不显示轮廓线 */
+    color: white; /* 字体颜色 */
+    font-size: 17px; /* 字体大小 */
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+.button:hover { /* 鼠标移入按钮范围时改变颜色 */
+    background: #5599FF;
+}
+
+#first {
+    font-size: 20px;
+    color: yellowgreen;
+}
+
+#pageControl{
+    width: 100%;
+    height: auto;
+    position:absolute;
+    bottom:10px;
+    font-size: 13px;
+}
+
+.pageControl_item{
+    width:120px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float: right;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.pageControl_item_disabled{
+    color:gray;
+}
+
+.hr{
+    border:none;
+    border-top:1px solid #DFA40C;
+    height: 1px;
+    margin-top: 40px;
+    width: 96%;
+}
+
