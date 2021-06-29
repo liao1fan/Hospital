@@ -52,9 +52,6 @@
                 <script>openNav()</script>
                 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 菜单栏</span>
             </div>
-            <br/>
-
-            <br/>
 
             <div class="navigation">
                 <div class="readerBlock1">

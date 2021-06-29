@@ -21,10 +21,9 @@
         <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
         <meta http-equiv="description" content="This is my page">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <%--        <link rel="stylesheet" type="text/css" href="styles.css">--%>
 
-        <link href="../../css/index.css" type="text/css" rel="stylesheet">
-        <%--        <link href="../../css/heading.css" type="text/css" rel="stylesheet">--%>
+        <link href="../../css/getDrug.css" type="text/css" rel="stylesheet">
+        <link href="../../css/background.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 
@@ -32,7 +31,6 @@
         <style>
             .qcdromodel {
                 width: 500px;
-                margin: 0 auto
             }
 
             .qc-dromodel {
@@ -49,7 +47,7 @@
     </head>
 
     <body>
-        <%@ include file="../../top.jsp" %>
+        <%@ include file="../../heading.jsp" %>
 
         <div id="main">
             <%--侧边菜单栏--%>
@@ -77,40 +75,36 @@
 
 
             <div class="navigation">
-                当前位置:&nbsp;&nbsp;取 药
-                <a href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;<a
-                    href="/logout">注销</a>
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;取药
+                </div>
+
+                <div class="readerBlock2">
+                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
+                        href="/logout" class="aa">注销</a>
+                </div>
             </div>
 
             <div>
-                <form action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
+                <a action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
                     <section class="navigation">
 
-                        <div class="qcdromodel" style="margin-left: 5%;">
-                            <select class="" id="industryOf" name="industryOf" onclick="onezs();"
-                                    style="height: 24px;width: 170px;height: 30px;-moz-appearance: none;pointer-events: none;">
-                                <option value=""></option>
-                            </select>
-
-                            药品名称:<input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();"
-                                        style="height: 24px; width: 150px; position: absolute; left: 5%;"
-                                        placeholder="输入药品名称">
-                            <ul class="qc-dromodel" id="modedata"
-                                style="padding-left: 0px;margin-top: 0px;width: 170px;display: none;margin-left: -7px;">
-                                药品名称:<input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称"
-                                            style="height: 24px; width: 150px; position: absolute; left: 5%;top: 8px;">
-                                <ul class="qc-dromodel_1"
-                                    style="overflow: scroll;height: 300px;background-color: rgb(0, 188, 212);width: 100%;padding-left: 10px;display: block;">
+                        <div class="qcdromodel">
+                            <a id="drugName">药品名称:</a>
+                            <input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();" placeholder="输入药品名称">
+                            <ul class="qc-dromodel" id="modedata">
+                                <input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称">
+                                <ul class="qc-dromodel_1" id="medicine">
                                     <c:forEach items="${drugList}" var="drug">
-                                        <li><a href="javascript:;">${drug.name}</a></li>
+                                        <li><a href="javascript:;" id="drug">${drug.name}</a></li>
                                     </c:forEach>
                                 </ul>
                             </ul>
                         </div>
                     </section>
-                    <br/><br/>
-                    药品数量:
-                    <select name="drugNum">
+
+                    <a class="patient">药品数量:</a>
+                    <select name="drugNum" id="selectNum">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -119,17 +113,20 @@
                         <option value="6">6</option>
                         <option value="7">7</option>
                     </select>
-                    <br/><br/>
-                    <input type="submit" value="确认"/>
-                </form>
+                    <br/>
+                    <input class="button" type="submit" value="确认"/>
+                </a>
             </div>
-                <br/><br/>
+                <br/>
 
-            药品信息:<textarea name="drugInfo" cols="150" rows="20" align="center">
+            <div class="patient">
+                <a class="patient1"> 药品信息:</a>
+                <textarea name="drugInfo" cols="150" rows="20" align="center">
                 <c:forEach items="${drugInfoList}" var="drugInfo">
                     ${drugInfo}
                 </c:forEach>
             </textarea>
+            </div>
                 <br/><br/>
                 <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treatId}'">继续取药</button>
                 <button onclick="location.href='/doctorHandle?method=displayDiagnose&treatId=${treatId}'">返回上一页</button>
@@ -173,7 +170,6 @@
             // 下拉框里面内容收起
             $('.qc-dromodel li a').on('click', function (e) {
                 $("#onezs").css("display", "block");
-                $("#onezs").css("top", "8px");
                 $(this).parents('.qc-dromodel').hide().siblings('.qc-zsearch').removeClass('selected').removeClass('cli').val($(this).text());
                 e.stopPropagation();// 阻止事件冒泡
             });
