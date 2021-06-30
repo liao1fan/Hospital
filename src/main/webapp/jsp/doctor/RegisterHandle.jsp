@@ -37,7 +37,6 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">About</a>
                 <br/><br/>
                 <a href="/doctorHandle">医生信息</a>
                 <br/><br/>
@@ -59,8 +58,7 @@
                 </div>
 
                 <div class="readerBlock2">
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a>
+                    <a href="/logout">注销</a>
                 </div>
             </div>
 

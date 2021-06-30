@@ -54,7 +54,6 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="#">About</a>
                 <br/><br/>
                 <a href="/doctorHandle">医生信息</a>
                 <br/><br/>
@@ -73,20 +72,18 @@
             <%-- 侧边栏end  --%>
             <br/>
 
-
             <div class="navigation">
                 <div class="readerBlock1">
                     当前位置:&nbsp;&nbsp;取药
                 </div>
 
                 <div class="readerBlock2">
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout" class="aa">注销</a>
+                    <a href="/logout">注销</a>
                 </div>
             </div>
 
             <div>
-                <a action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
+                <form action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
                     <section class="navigation">
 
                         <div class="qcdromodel">
@@ -115,7 +112,7 @@
                     </select>
                     <br/>
                     <input class="button" type="submit" value="确认"/>
-                </a>
+                </form>
             </div>
                 <br/>
 

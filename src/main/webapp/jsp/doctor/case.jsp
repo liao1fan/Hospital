@@ -58,8 +58,7 @@
                 </div>
 
                 <div class="readerBlock2">
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a>
+                    <a href="/logout">注销</a>
                 </div>
 
             </div>
@@ -68,7 +67,7 @@
                     <tr>
                         <td>患者姓名</td>
                         <td>看病时间</td>
-                        <td>患者症状</td>
+                        <td>诊断信息</td>
                         <td>操作</td>
                     </tr>
 
@@ -77,7 +76,7 @@
                         <tr>
                             <td>${treat.patient.name}</td>
                             <td>${treat.time}</td>
-                            <td>${treat.symptom}</td>
+                            <td>${treat.diagnose}</td>
                             <td>
                                 <a href="/doctorHandle?method=displayDiagnose&treatId=${treat.id}&page=1">编辑</a>&nbsp;
                             </td>

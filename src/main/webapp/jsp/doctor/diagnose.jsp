@@ -40,7 +40,7 @@
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=RegisterHandle">病例管理</a>
+                <a href="/doctorHandle?method=caseHandle">病例管理</a>
             </div>
 
             <div>
@@ -56,8 +56,7 @@
                 </div>
 
                 <div class="readerBlock2">
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout" class="aa">注销</a>
+                    <a href="/logout">注销</a>
                 </div>
             </div>
 
@@ -114,6 +113,7 @@
 
                 </form>
                 <button class="button" onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
+                <button class="button" onclick="location.href='/doctorHandle?method=caseHandle'">返回上一页</button>
             </table>
 
 

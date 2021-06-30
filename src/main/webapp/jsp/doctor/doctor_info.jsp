@@ -37,7 +37,6 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
                 <a href="/doctorHandle">医生信息</a>
                 <br/><br/>
                 <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
@@ -54,10 +53,13 @@
 
 
             <div class="navigation">
-                <a id="choose">当前位置:&nbsp;&nbsp;查看医生信息
-                    <a href="/book?method=findAllMedicalRecord" class="a">${sessionScope.patient.name}</a>&nbsp;<a
-                        href="/logout">注销</a>
-                </a>
+                <div class="readerBlock1">
+                    当前位置:&nbsp;&nbsp;查看医生信息
+                </div>
+
+                <div class="readerBlock2">
+                    <a href="/logout">注销</a>
+                </div>
             </div>
 
             <div>
@@ -94,7 +96,7 @@
 
                 <h2>个人简介</h2>
                 <p>
-                    徐宝双，男，主任中医师，从事传染病治疗工作近20年，尤其在中西医结合治疗慢性乙肝阳转阴及重型肝炎、肝硬化等方面积累了丰富的临床经验，并在国家级及省级学术刊物上发表论文多篇，科研课题获市临床医疗成果奖。
+                    徐宝双，男，主任医师，神经内科专家，从事神经内科二十余年，先后在部队、地方医院从事神经内科工作，积累了丰富的癫痫疾病医疗理论功底和临床治疗经验，并在国家级及省级学术刊物上发表论文多篇，科研课题获市临床医疗成果奖。
                 </p>
             </div>
         </div>
