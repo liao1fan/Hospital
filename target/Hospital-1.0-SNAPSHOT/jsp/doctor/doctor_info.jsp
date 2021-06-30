@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="readerBlock2">
-                    <a class="a" href="/logout">注销</a>
+                    <a  href="/logout">注销</a>
                 </div>
             </div>
 
