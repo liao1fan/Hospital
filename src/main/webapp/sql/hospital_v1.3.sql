@@ -5,12 +5,6 @@
 -- HeidiSQL 版本:                  11.0.0.5919
 -- --------------------------------------------------------
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
 
 -- 导出 hospital 的数据库结构
 CREATE DATABASE IF NOT EXISTS `hospital` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
@@ -25,11 +19,10 @@ CREATE TABLE IF NOT EXISTS `admin` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='管理员信息表';
 
 -- 正在导出表  hospital.admin 的数据：~2 rows (大约)
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
 INSERT INTO `admin` (`id`, `username`, `password`) VALUES
 	(1, 'admin1', '123123'),
 	(2, 'admin2', '000000');
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.department 结构
 CREATE TABLE IF NOT EXISTS `department` (
@@ -40,7 +33,6 @@ CREATE TABLE IF NOT EXISTS `department` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='科室信息表';
 
 -- 正在导出表  hospital.department 的数据：~6 rows (大约)
-/*!40000 ALTER TABLE `department` DISABLE KEYS */;
 INSERT INTO `department` (`Department_id`, `Department_name`, `Department_Phone`) VALUES
 	(1, '内科', '13663894233'),
 	(2, '外科', '15288347293'),
@@ -48,7 +40,7 @@ INSERT INTO `department` (`Department_id`, `Department_name`, `Department_Phone`
 	(4, '耳鼻喉科', '13698472397'),
 	(5, '眼科', '18978497347'),
 	(6, '儿科', '15934984328');
-/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.doctor 结构
 CREATE TABLE IF NOT EXISTS `doctor` (
@@ -76,7 +68,7 @@ INSERT INTO `doctor` (`Doctor_id`, `Doctor_name`, `Doctor_age`, `Doctor_sex`, `D
 	(4, '闫玉红', 50, '女', '主任医师', '鼻炎、咽炎、中耳炎等耳鼻喉疾病', 4, 'yuhong', '123123'),
 	(5, '孙海霞', 46, '女', '副主任医师', '眼科疾病', 5, 'haixia', '123123'),
 	(6, '赵晨', 39, '男', '医师', '儿科疾病与儿童护理', 6, 'chenge', '123123');
-/*!40000 ALTER TABLE `doctor` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.doctor_state 结构
 CREATE TABLE IF NOT EXISTS `doctor_state` (
@@ -91,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `doctor_state` (
 ) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='医生挂号日期状态表';
 
 -- 正在导出表  hospital.doctor_state 的数据：~31 rows (大约)
-/*!40000 ALTER TABLE `doctor_state` DISABLE KEYS */;
+
 INSERT INTO `doctor_state` (`Doctor_state_id`, `Doctor_id`, `Date`, `Fee`, `Num`) VALUES
 	(2, 3, '2021-06-08', 40, 8),
 	(3, 4, '2021-06-08', 40, 20),
@@ -124,7 +116,7 @@ INSERT INTO `doctor_state` (`Doctor_state_id`, `Doctor_id`, `Date`, `Fee`, `Num`
 	(30, 5, '2021-06-12', 20, 20),
 	(31, 6, '2021-06-12', 10, 20),
 	(32, 1, '2021-06-13', 40, 20);
-/*!40000 ALTER TABLE `doctor_state` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.drug 结构
 CREATE TABLE IF NOT EXISTS `drug` (
@@ -139,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `drug` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='药品信息表';
 
 -- 正在导出表  hospital.drug 的数据：~8 rows (大约)
-/*!40000 ALTER TABLE `drug` DISABLE KEYS */;
+
 INSERT INTO `drug` (`Drug_id`, `Drug_name`, `Drug_lotnumber`, `Drug_indication`, `Drug_price`) VALUES
 	(1, '999感冒灵颗粒', '2', '解热镇痛，用于感冒引起的头痛，发热等', 9.9),
 	(2, '康恩贝肠炎宁片', '2', '清热利湿，行气；用于大肠湿热所致的腹泻，急慢性肠炎', 16.9),
@@ -149,7 +141,7 @@ INSERT INTO `drug` (`Drug_id`, `Drug_name`, `Drug_lotnumber`, `Drug_indication`,
 	(6, '斯利安 叶酸片', '1', '预防胎儿先天性神经管畸形，妊娠期、哺乳期妇女预防用药', 69),
 	(8, '维尔固 盐酸氨基葡萄糖胶囊', '2', '治疗和预防全身所有部位的骨关节炎，可缓解和消除骨关节炎的疼痛、肿胀等症状，改善关节活动功能。', 52),
 	(9, '罗每乐 盐酸阿莫罗芬搽剂', '3', '用于治疗敏感真菌引起的指(趾)甲感染', 252);
-/*!40000 ALTER TABLE `drug` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.getdrug 结构
 CREATE TABLE IF NOT EXISTS `getdrug` (
@@ -166,7 +158,7 @@ CREATE TABLE IF NOT EXISTS `getdrug` (
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='取药信息表';
 
 -- 正在导出表  hospital.getdrug 的数据：~6 rows (大约)
-/*!40000 ALTER TABLE `getdrug` DISABLE KEYS */;
+
 INSERT INTO `getdrug` (`Get_id`, `Drug_id`, `Drug_num`, `Get_time`, `Treat_id`) VALUES
 	(17, 1, 3, '2021-06-11 10:15:03', 1),
 	(18, 5, 3, '2021-06-11 10:15:03', 1),
@@ -174,7 +166,7 @@ INSERT INTO `getdrug` (`Get_id`, `Drug_id`, `Drug_num`, `Get_time`, `Treat_id`) 
 	(20, 6, 4, '2021-06-11 10:15:03', 1),
 	(21, 9, 5, '2021-06-11 10:15:03', 1),
 	(22, 9, 1, '2021-06-11 10:15:03', 1);
-/*!40000 ALTER TABLE `getdrug` ENABLE KEYS */;
+
 
 -- 导出  表 hospital.patient 结构
 CREATE TABLE IF NOT EXISTS `patient` (
@@ -191,13 +183,35 @@ CREATE TABLE IF NOT EXISTS `patient` (
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='患者信息表';
 
 -- 正在导出表  hospital.patient 的数据：~4 rows (大约)
-/*!40000 ALTER TABLE `patient` DISABLE KEYS */;
 INSERT INTO `patient` (`Patient_id`, `Patient_name`, `Patient_age`, `Patient_sex`, `Patient_Address`, `Patient_Phone`, `username`, `password`) VALUES
 	(1, '张三', 28, '男', '北京市海淀区清华东路17号', '13883292814', 'zhangsan', '123123'),
 	(5, 'Yiwen Wang', 21, '男', '北京市海淀区清华东路17号', '13691131099', 'wyw', '123123'),
 	(6, 'cau', 29, '女', '北京市海淀区清华东路17号', '15153643878', 'CAU', 'cau123'),
 	(7, '小红', 38, '女', '北京市海淀区清华东路17号', '13691131099', 'xiaohong', '123123');
-/*!40000 ALTER TABLE `patient` ENABLE KEYS */;
+
+-- 导出  表 hospital.treat 结构
+CREATE TABLE IF NOT EXISTS `treat` (
+                                       `Treat_id` int NOT NULL AUTO_INCREMENT COMMENT '病例编号',
+                                       `Patient_id` int NOT NULL COMMENT '患者编号',
+                                       `Doctor_id` int NOT NULL COMMENT '医生编号',
+                                       `Treat_dateTime` datetime NOT NULL COMMENT '看病时间',
+                                       `symptom` char(200) NOT NULL COMMENT '患者症状',
+                                       `Diagnose_info` char(200) NOT NULL COMMENT '诊断信息',
+                                       PRIMARY KEY (`Treat_id`),
+                                       KEY `Patient_id` (`Patient_id`),
+                                       KEY `Doctor_id` (`Doctor_id`),
+                                       CONSTRAINT `treat_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patient` (`Patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                                       CONSTRAINT `treat_ibfk_2` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='看病信息表';
+
+-- 正在导出表  hospital.treat 的数据：~6 rows (大约)
+INSERT INTO `treat` (`Treat_id`, `Patient_id`, `Doctor_id`, `Treat_dateTime`, `symptom`, `Diagnose_info`) VALUES
+(1, 1, 3, '2021-06-11 10:15:03', '流鼻涕，喉咙疼,四肢酸痛', '流行性感冒'),
+(2, 1, 3, '2021-06-11 10:53:13', '', ''),
+(3, 1, 3, '2021-06-11 11:23:34', '', ''),
+(4, 1, 3, '2021-06-11 11:41:09', '', ''),
+(5, 1, 3, '2021-06-11 20:37:05', '', ''),
+(6, 1, 3, '2021-06-11 21:24:21', '', '');
 
 -- 导出  表 hospital.register 结构
 CREATE TABLE IF NOT EXISTS `register` (
@@ -215,7 +229,6 @@ CREATE TABLE IF NOT EXISTS `register` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='挂号信息表';
 
 -- 正在导出表  hospital.register 的数据：~4 rows (大约)
-/*!40000 ALTER TABLE `register` DISABLE KEYS */;
 INSERT INTO `register` (`Register_id`, `Patient_id`, `Doctor_id`, `Register_time`, `Register_fee`, `Register_state`) VALUES
 	(1, 1, 3, '2021-06-08', 40, 1),
 	(2, 1, 1, '2021-06-08', 40, 1),
@@ -223,34 +236,4 @@ INSERT INTO `register` (`Register_id`, `Patient_id`, `Doctor_id`, `Register_time
 	(4, 1, 3, '2021-06-08', 40, 1),
 	(5, 1, 1, '2021-06-08', 40, 2),
 	(6, 1, 3, '2021-06-11', 40, 1);
-/*!40000 ALTER TABLE `register` ENABLE KEYS */;
 
--- 导出  表 hospital.treat 结构
-CREATE TABLE IF NOT EXISTS `treat` (
-  `Treat_id` int NOT NULL AUTO_INCREMENT COMMENT '病例编号',
-  `Patient_id` int NOT NULL COMMENT '患者编号',
-  `Doctor_id` int NOT NULL COMMENT '医生编号',
-  `Treat_dateTime` datetime NOT NULL COMMENT '看病时间',
-  `symptom` char(200) NOT NULL COMMENT '患者症状',
-  `Diagnose_info` char(200) NOT NULL COMMENT '诊断信息',
-  PRIMARY KEY (`Treat_id`),
-  KEY `Patient_id` (`Patient_id`),
-  KEY `Doctor_id` (`Doctor_id`),
-  CONSTRAINT `treat_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patient` (`Patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `treat_ibfk_2` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='看病信息表';
-
--- 正在导出表  hospital.treat 的数据：~6 rows (大约)
-/*!40000 ALTER TABLE `treat` DISABLE KEYS */;
-INSERT INTO `treat` (`Treat_id`, `Patient_id`, `Doctor_id`, `Treat_dateTime`, `symptom`, `Diagnose_info`) VALUES
-	(1, 1, 3, '2021-06-11 10:15:03', '流鼻涕，喉咙疼,四肢酸痛', '流行性感冒'),
-	(2, 1, 3, '2021-06-11 10:53:13', '', ''),
-	(3, 1, 3, '2021-06-11 11:23:34', '', ''),
-	(4, 1, 3, '2021-06-11 11:41:09', '', ''),
-	(5, 1, 3, '2021-06-11 20:37:05', '', ''),
-	(6, 1, 3, '2021-06-11 21:24:21', '', '');
-/*!40000 ALTER TABLE `treat` ENABLE KEYS */;
-
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
