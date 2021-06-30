@@ -12,12 +12,11 @@
 
 .readerBlock1 {
     float: left;
-    margin-left: 60px;
+    /*margin-left: 60px;*/
 }
 
 .readerBlock2 {
     float: right;
-    margin-right: 100px;
 }
 
 .a {
@@ -26,6 +25,7 @@
     text-decoration-style: solid;
     color: blue;
     cursor: pointer;     /* 鼠标样式*/
+    margin-right: 30px;
 }
 
 a:link { color: #06F; text-decoration: none; }/* 未访问的链接 */

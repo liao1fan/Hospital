@@ -3,41 +3,19 @@
 }
 #doctorInfo {
     position: absolute;
-    top: 45%;
+    top: 50%;
     margin-top: -300px;
     left: 50%;
     margin-left: -34%;
     /* absolute居中的一种方法 */
     background-color: whitesmoke;
     width: 70%;
-    height: 70%;
+    height: 60%;
     border-radius: 25px;
     text-align: center;
     padding: 5px 40px;
     box-sizing: border-box;
     /* 这样padding就不会影响大小 */
-}
-
-.navigation{
-    width:100%;
-    height: 30px;
-    position: relative;
-    text-align: left;
-    font-size: 22px;
-    padding-bottom: 30px;
-    border-bottom: #3197EE solid 2px;
-    margin-top: 25px;
-    margin-bottom: 10px;
-}
-
-.readerBlock1 {
-    float: left;
-    margin-left: 60px;
-}
-
-.readerBlock2 {
-    float: right;
-    margin-right: 100px;
 }
 
 .a {
@@ -46,7 +24,7 @@
     text-decoration-style: solid;
     color: blue;
     cursor: pointer;     /* 鼠标样式*/
-    margin-left: 60%;
+    margin-right: 30px;
 }
 
 a:link { color: #06F; text-decoration: none; }/* 未访问的链接 */

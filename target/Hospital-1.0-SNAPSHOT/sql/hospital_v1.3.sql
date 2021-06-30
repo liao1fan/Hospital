@@ -18,10 +18,10 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='管理员信息表';
 
-# -- 正在导出表  hospital.admin 的数据：~2 rows (大约)
-# INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-# 	(1, 'admin1', '123123'),
-# 	(2, 'admin2', '000000');
+-- 正在导出表  hospital.admin 的数据：~2 rows (大约)
+INSERT INTO `admin` (`id`, `username`, `password`) VALUES
+	(1, 'admin1', '123123'),
+	(2, 'admin2', '000000');
 
 
 -- 导出  表 hospital.department 结构
@@ -189,6 +189,30 @@ INSERT INTO `patient` (`Patient_id`, `Patient_name`, `Patient_age`, `Patient_sex
 	(6, 'cau', 29, '女', '北京市海淀区清华东路17号', '15153643878', 'CAU', 'cau123'),
 	(7, '小红', 38, '女', '北京市海淀区清华东路17号', '13691131099', 'xiaohong', '123123');
 
+-- 导出  表 hospital.treat 结构
+CREATE TABLE IF NOT EXISTS `treat` (
+                                       `Treat_id` int NOT NULL AUTO_INCREMENT COMMENT '病例编号',
+                                       `Patient_id` int NOT NULL COMMENT '患者编号',
+                                       `Doctor_id` int NOT NULL COMMENT '医生编号',
+                                       `Treat_dateTime` datetime NOT NULL COMMENT '看病时间',
+                                       `symptom` char(200) NOT NULL COMMENT '患者症状',
+                                       `Diagnose_info` char(200) NOT NULL COMMENT '诊断信息',
+                                       PRIMARY KEY (`Treat_id`),
+                                       KEY `Patient_id` (`Patient_id`),
+                                       KEY `Doctor_id` (`Doctor_id`),
+                                       CONSTRAINT `treat_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patient` (`Patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                                       CONSTRAINT `treat_ibfk_2` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='看病信息表';
+
+-- 正在导出表  hospital.treat 的数据：~6 rows (大约)
+INSERT INTO `treat` (`Treat_id`, `Patient_id`, `Doctor_id`, `Treat_dateTime`, `symptom`, `Diagnose_info`) VALUES
+(1, 1, 3, '2021-06-11 10:15:03', '流鼻涕，喉咙疼,四肢酸痛', '流行性感冒'),
+(2, 1, 3, '2021-06-11 10:53:13', '', ''),
+(3, 1, 3, '2021-06-11 11:23:34', '', ''),
+(4, 1, 3, '2021-06-11 11:41:09', '', ''),
+(5, 1, 3, '2021-06-11 20:37:05', '', ''),
+(6, 1, 3, '2021-06-11 21:24:21', '', '');
+
 -- 导出  表 hospital.register 结构
 CREATE TABLE IF NOT EXISTS `register` (
   `Register_id` int NOT NULL AUTO_INCREMENT COMMENT '挂号编号',
@@ -213,26 +237,3 @@ INSERT INTO `register` (`Register_id`, `Patient_id`, `Doctor_id`, `Register_time
 	(5, 1, 1, '2021-06-08', 40, 2),
 	(6, 1, 3, '2021-06-11', 40, 1);
 
--- 导出  表 hospital.treat 结构
-CREATE TABLE IF NOT EXISTS `treat` (
-  `Treat_id` int NOT NULL AUTO_INCREMENT COMMENT '病例编号',
-  `Patient_id` int NOT NULL COMMENT '患者编号',
-  `Doctor_id` int NOT NULL COMMENT '医生编号',
-  `Treat_dateTime` datetime NOT NULL COMMENT '看病时间',
-  `symptom` char(200) NOT NULL COMMENT '患者症状',
-  `Diagnose_info` char(200) NOT NULL COMMENT '诊断信息',
-  PRIMARY KEY (`Treat_id`),
-  KEY `Patient_id` (`Patient_id`),
-  KEY `Doctor_id` (`Doctor_id`),
-  CONSTRAINT `treat_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patient` (`Patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `treat_ibfk_2` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='看病信息表';
-
--- 正在导出表  hospital.treat 的数据：~6 rows (大约)
-INSERT INTO `treat` (`Treat_id`, `Patient_id`, `Doctor_id`, `Treat_dateTime`, `symptom`, `Diagnose_info`) VALUES
-	(1, 1, 3, '2021-06-11 10:15:03', '流鼻涕，喉咙疼,四肢酸痛', '流行性感冒'),
-	(2, 1, 3, '2021-06-11 10:53:13', '', ''),
-	(3, 1, 3, '2021-06-11 11:23:34', '', ''),
-	(4, 1, 3, '2021-06-11 11:41:09', '', ''),
-	(5, 1, 3, '2021-06-11 20:37:05', '', ''),
-	(6, 1, 3, '2021-06-11 21:24:21', '', '');

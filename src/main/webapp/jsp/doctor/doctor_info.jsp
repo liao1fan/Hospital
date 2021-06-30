@@ -23,6 +23,7 @@
 
         <link href="../../css/doctor_info.css" type="text/css" rel="stylesheet">
         <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/readerBlock.css" rel="stylesheet">
 
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
