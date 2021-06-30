@@ -9,4 +9,5 @@ public interface DoctorRepository {
     public List<Doctor> findByDepartmentId(Integer departmentId);
     public Doctor findByDoctorId(Integer doctorId);
     public boolean findByUsername(String username);
+    public List<Doctor> findAll();
 }

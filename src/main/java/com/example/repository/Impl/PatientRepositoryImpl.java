@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PatientRepositoryImpl implements PatientRepository {
 
@@ -64,6 +66,35 @@ public class PatientRepositoryImpl implements PatientRepository {
             JDBCTools.release(connection , statement , resultSet);
         }
         return state;
+    }
+
+    @Override
+    public List<Patient> findAll() {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        String sql = "select * from Patient";
+        connection = JDBCTools.getConnection();
+        List<Patient> patientList = new ArrayList<>();
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                patientList.add(new Patient(resultSet.getInt(1) ,
+                        resultSet.getString(2) ,
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8)));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , resultSet);
+        }
+        return patientList;
     }
 
     @Override

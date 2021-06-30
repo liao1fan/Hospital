@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet {
                     case "admin":
                         Admin admin = (Admin) object;
                         session.setAttribute("admin" , admin);
-                        resp.sendRedirect("/admin");
+                        resp.sendRedirect("admin");
                         break;
                 }
                 break;

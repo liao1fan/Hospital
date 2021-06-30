@@ -125,6 +125,35 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     }
 
     @Override
+    public List<Doctor> findAll() {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        String sql = "select * from Doctor where Doctor_id = ?";
+        connection = JDBCTools.getConnection();
+        List<Doctor> doctorList = new ArrayList<>();
+        try {
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                doctorList.add(new Doctor(resultSet.getInt(1) ,// id
+                        resultSet.getString(2) , //name
+                        resultSet.getString(3) , //title
+                        resultSet.getString(4) , // speciality
+                        resultSet.getString(5) , // username
+                        resultSet.getString(6)   // password
+                ));
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , resultSet);
+        }
+        return doctorList;
+    }
+
+    @Override
     public boolean findByUsername(String username) {
         boolean state = false;
         Connection connection = null;
@@ -146,4 +175,5 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         }
         return state;
     }
+
 }

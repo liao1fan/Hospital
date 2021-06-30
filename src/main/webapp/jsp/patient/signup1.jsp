@@ -11,7 +11,7 @@
 <html>
     <link rel="stylesheet" href="../../css/signup1.css">
     <head>
-        <title>登录</title>
+        <title>注册</title>
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
             $(function () {

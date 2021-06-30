@@ -12,7 +12,7 @@
     <head>
         <base href="<%=basePath%>">
 
-        <title>My JSP 'register.jsp' starting page</title>
+        <title>修改科室信息</title>
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="expires" content="0">
@@ -37,12 +37,11 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a href="/admin">查询患者信息</a>
                 <br/><br/>
-                <a href="/doctorHandle">医生信息</a>
+                <a href="/admin?method=alterDoctor">修改医生信息</a>
                 <br/><br/>
-                <a href="/doctorHandle?method=RegisterHandle">挂号管理</a>
-                <br/><br/>
-                <a href="/doctorHandle?method=caseHandle">病例管理</a>
+                <a href="/admin?method=alterDepartment">修改科室信息</a>
             </div>
 
             <div>
@@ -54,7 +53,7 @@
 
             <div class="navigation">
                 <div class="readerBlock1">
-                    当前位置:&nbsp;&nbsp;处理挂号记录
+                    当前位置:&nbsp;&nbsp;修改科室信息
                 </div>
 
                 <div class="readerBlock2">
@@ -64,31 +63,17 @@
 
             <table class="table" cellspacing="0">
                 <tr>
-                    <td>患者姓名</td>
-                    <td>挂号时间</td>
-                    <td>审核状态</td>
+                    <td>科室名称</td>
+                    <td>科室电话</td>
                     <td>操作</td>
                 </tr>
-
-
-                <c:forEach items="${registerList}" var="register">
+                <c:forEach items="${departmentList}" var="department">
                     <tr>
-                        <td>${register.patient.name}</td>
-                        <td>${register.date}</td>
+                        <td>${department.name}</td>
+                        <td>${department.phone}</td>
                         <td>
-                            <c:if test="${register.state == 0}">
-                                <font color="#9acd32">未确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 1}">
-                                <font color="blue">已确认</font>
-                            </c:if>
-                            <c:if test="${register.state == 2}">
-                                <font color="red">未通过</font>
-                            </c:if>
-                        </td>
-                        <td>
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=1&page=1">确认</a>&nbsp;
-                            <a href="/doctorHandle?method=handle&registerId=${register.id}&state=2&page=1">不予通过</a>
+                            <a href="/admin?method=deleleDepartment&&departmentId=${department.id}">删除</a>
+                            <a href="/admin?method=alterDepartment&&departmentId=${department.id}">修改电话</a>
                         </td>
                     </tr>
                 </c:forEach>
