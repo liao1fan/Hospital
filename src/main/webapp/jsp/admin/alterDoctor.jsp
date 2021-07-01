@@ -25,6 +25,7 @@
         <link href="../../css/background.css" rel="stylesheet">
         <link href="../../css/readerBlock.css" rel="stylesheet">
         <link href="../../css/menu.css" rel="stylesheet">
+        <link href="../../css/button.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
@@ -91,7 +92,7 @@
                     </tr>
                 </c:forEach>
             </table>
-            <button class="button" onclick="location.href='/admin?method=addDoctor'">添加医生</button>
+            <button class="btn1" onclick="location.href='/admin?method=addDoctor'">添加医生</button>
         </div>
 
         <%@ include file="../../footer.jsp" %>

@@ -9,7 +9,7 @@
 <%--患者用户点击注册按钮后来到注册页面--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <link rel="stylesheet" href="../../css/signup1.css">
+    <link rel="stylesheet" href="../../css/alterDepartmentPhone.css">
     <head>
         <title>注册</title>
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
@@ -26,7 +26,7 @@
 
             <div>
                 <p>
-                    请修改科室电话:<input type="text" name="phone">
+                    科室电话:<input type="text" name="phone">
                 </p>
             </div>
 
