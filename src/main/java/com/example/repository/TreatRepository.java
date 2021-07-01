@@ -16,4 +16,5 @@ public interface TreatRepository {
 
     public void updateDiagnose(Integer treatId ,String  symptom ,String diagnose);
 
+    public List<Treat> findByPatientId(Integer patientId);
 }

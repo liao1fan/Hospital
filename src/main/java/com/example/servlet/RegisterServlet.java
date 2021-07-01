@@ -1,6 +1,8 @@
 package com.example.servlet;
 
 import com.example.entity.*;
+import com.example.service.DoctorHandleService;
+import com.example.service.Impl.DoctorHandleServiceImpl;
 import com.example.service.Impl.RegisterServiceImpl;
 import com.example.service.RegisterService;
 import net.sf.json.JSON;
@@ -27,6 +29,7 @@ public class RegisterServlet extends HttpServlet {
 
     private static RegisterService registerService = new RegisterServiceImpl();
 
+    private static DoctorHandleService doctorHandleService = new DoctorHandleServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -106,7 +109,32 @@ public class RegisterServlet extends HttpServlet {
                         doctor_state.getFee() , 0 ); // state = 0 表示挂号成功但未处理
                 registerService.changeNum(doctorStateId);
                 break;
-
+            case "patientCase":
+                Integer patientId = Integer.parseInt(req.getParameter("patientId"));
+                List<Treat> treatList = new ArrayList<>();
+                treatList = registerService.findAllTreatByPatientId(patientId);
+                req.setAttribute("treatList" , treatList);
+                req.getRequestDispatcher("/jsp/patient/patientCase.jsp").forward(req,resp);
+                break;
+            case "patientDiagnose":
+                Integer treatId = Integer.parseInt(req.getParameter("treatId"));
+                Treat treat = registerService.findTreatByTreatId(treatId);
+                List<GetDrug> getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
+                List<String> drugInfoList = new ArrayList<>();
+                for(GetDrug getDrug : getDrugList) {
+                    drugInfoList.add(getDrug.getDrugInfo());
+                }
+                Double DrugTotalCost = 0.0;
+                for(GetDrug getDrug : getDrugList) {
+                    DrugTotalCost += getDrug.getDrugTotalCost();
+                }
+                Double cost = Double.parseDouble(String.format("%.2f",DrugTotalCost));
+                req.setAttribute("drugTotalCost" , cost);
+                req.setAttribute("drugInfoList" , drugInfoList);
+                req.setAttribute("getDrugList" , getDrugList);
+                req.setAttribute("treat" , treat);
+                req.getRequestDispatcher("/jsp/patient/patientDiagnose.jsp").forward(req, resp);
+                break;
         }
     }
 

@@ -3,6 +3,7 @@ package com.example.service;
 import com.example.entity.Department;
 import com.example.entity.Doctor;
 import com.example.entity.Doctor_state;
+import com.example.entity.Treat;
 
 import java.util.Date;
 import java.util.List;
@@ -17,4 +18,6 @@ public interface RegisterService {
     public Department findByDepartmentId(Integer departmentId);
     public void addRegister(Integer patientId, Integer doctorId , Date time , Double fee , Integer state);
     public void changeNum(Integer doctorStateId);
+    public List<Treat> findAllTreatByPatientId(Integer patientId);
+    public Treat findTreatByTreatId(Integer treatId);
 }
