@@ -1,0 +1,110 @@
+*{
+    user-select: none;
+    /* 使用户无法选中文字 */
+}
+
+body {
+    background: url(../images/hospital.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.signup {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -250px;
+    /* absolute居中的一种方法 */
+    background-color: whitesmoke;
+    width: 550px;
+    height: 20%;
+    border-radius: 25px;
+    text-align: center;
+    padding: 5px 40px;
+    box-sizing: border-box;
+    /* 这样padding就不会影响大小 */
+
+}
+
+div {
+    width: 100%;
+}
+
+p {
+    vertical-align: center;
+    color: darkblue;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 300;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+p input {
+    vertical-align: center;
+    color: grey;
+    background-color: whitesmoke;
+    width: 75%;
+    height: 48px;
+    margin-top: 15px;
+    margin-left: 7%;
+    border: none;
+    border-bottom: 2px solid silver;
+    outline: none;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+select{
+    vertical-align: center;
+    margin-top: 15px;
+    margin-left: 25px;
+    border:1px #7F9DB9 solid;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    width: 70%;
+    height: 40px;
+}
+
+#phone{
+    vertical-align: center;
+    color: grey;
+    background-color: whitesmoke;
+    width: 65%;
+    height: 48px;
+    margin-top: 15px;
+    margin-left: 7%;
+    border: none;
+    border-bottom: 2px solid silver;
+    outline: none;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#submit {
+    width: 35%;
+    height: 27%;
+    border: none;
+    border-radius: 25px;
+    margin-top: 60px;
+    vertical-align: center;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    background-color: whitesmoke;
+    color: darkblue;
+}
+
+#footer {
+    position: fixed;
+    top: 95%;
+    left: 2%;
+}
+
+.foot_content{
+    color: ivory;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
