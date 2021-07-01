@@ -79,7 +79,7 @@
                     </tr>
                 </c:forEach>
             </table>
-            <button class="button" onclick="location.href='/admin?method=addDepartment'">添加科室</button>
+            <button class="btn1" onclick="location.href='/admin?method=addDepartment'">添加科室</button>
         </div>
 
         <%@ include file="../../footer.jsp" %>
