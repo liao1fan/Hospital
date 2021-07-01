@@ -1,5 +1,8 @@
 package com.example.entity;
 
+import com.example.repository.DrugRepository;
+import com.example.repository.Impl.DrugRepositoryImpl;
+
 import java.util.Iterator;
 import java.util.Map;
 
@@ -51,5 +54,22 @@ public class GetDrug {
             }
         }
         return drug_info;
+    }
+    public Double getDrugTotalCost(){
+        DrugRepository drugRepository = new DrugRepositoryImpl();
+        Drug drug = null;
+        Double sum = 0.0;
+        Integer num = 0;
+        Double price = 0.0;
+        Iterator<Map.Entry<Drug, Integer>> iterator = this.drugList.entrySet().iterator();
+        Map.Entry<Drug ,Integer> entry = null;
+        while(iterator.hasNext()){
+            entry = iterator.next();
+            num = entry.getValue();
+            String name = entry.getKey().getName();
+            drug = drugRepository.findByName(name);
+            sum += drug.getPrice() * num;
+        }
+        return sum;
     }
 }

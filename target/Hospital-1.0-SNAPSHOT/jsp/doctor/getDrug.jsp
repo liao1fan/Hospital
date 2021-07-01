@@ -84,12 +84,13 @@
             </div>
 
             <div>
-                <form action="/doctorHandle?method=addDrug&treatId=${treatId}" method="post">
+                <form action="/doctorHandle?method=addDrug&treatId=${treatId}&sum=${drugTotalCost}" method="post">
                     <section class="navigation">
 
                         <div class="qcdromodel">
                             <a id="drugName">药品名称:</a>
-                            <input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();" placeholder="输入药品名称">
+                            <input type="text" name="drugName" id="onezs" class="qc-zsearch" onclick="onezs();"
+                                   placeholder="输入药品名称">
                             <ul class="qc-dromodel" id="modedata">
                                 <input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称">
                                 <ul class="qc-dromodel_1" id="medicine">
@@ -115,19 +116,22 @@
                     <input class="button" type="submit" value="确认"/>
                 </form>
             </div>
-                <br/>
+            <br/>
 
             <div class="patient">
                 <a class="patient1"> 药品信息:</a>
                 <textarea name="drugInfo" cols="150" rows="20" align="center">
-                <c:forEach items="${drugInfoList}" var="drugInfo">
-                    ${drugInfo}
-                </c:forEach>
-            </textarea>
-            </div>
+                    <c:forEach items="${drugInfoList}" var="drugInfo">
+                        ${drugInfo}
+                    </c:forEach>
+                </textarea>
                 <br/><br/>
-                <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treatId}'">继续取药</button>
-                <button onclick="location.href='/doctorHandle?method=displayDiagnose&treatId=${treatId}'">返回上一页</button>
+                <a class="patient1"> 药品总价:</a>
+                <p>${drugTotalCost}</p>
+            </div>
+            <br/><br/>
+            <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treatId}'">继续取药</button>
+            <button onclick="location.href='/doctorHandle?method=displayDiagnose&treatId=${treatId}'">返回上一页</button>
         </div>
         <%@ include file="../../footer.jsp" %>
     </body>

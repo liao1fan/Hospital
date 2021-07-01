@@ -101,15 +101,28 @@
                     <tr>
                         <div class="patient">
                             <a class="patient1">处方信息:</a>
-                            <textarea name="drug_info" cols="150" rows="10"><c:forEach items="${drugInfoList}" var="drugInfo">${drugInfo}&#13</c:forEach></textarea>
+                            <textarea name="drug_info" cols="150" rows="10">
+                                <c:forEach items="${drugInfoList}" var="drugInfo">
+                                    ${drugInfo}
+                                </c:forEach>
+                            </textarea>
                         </div>
                     </tr>
                     <br/>
-
+                    <tr>
+                        <div class="patient">
+                            <a class="patient1">药品总价:</a>
+                            <p>${drugTotalCost}</p>
+                        </div>
+                    </tr>
+                    <br/>
                     <input class="button" type="submit" value="保 存"/>
 
                 </form>
-                <button class="button" onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}'">取 药</button>
+                <button class="button"
+                        onclick="location.href='/doctorHandle?method=getDrug&treatId=${treat.id}&sum=${drugTotalCost}'">
+                    取 药
+                </button>
                 <button class="button" onclick="location.href='/doctorHandle?method=caseHandle'">返回上一页</button>
             </table>
 

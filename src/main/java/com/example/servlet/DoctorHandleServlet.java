@@ -68,6 +68,12 @@ public class DoctorHandleServlet extends HttpServlet {
                 for(GetDrug getDrug : getDrugList) {
                     drugInfoList.add(getDrug.getDrugInfo());
                 }
+                Double DrugTotalCost = 0.0;
+                for(GetDrug getDrug : getDrugList) {
+                    DrugTotalCost += getDrug.getDrugTotalCost();
+                }
+                Double cost = Double.parseDouble(String.format("%.2f",DrugTotalCost));
+                req.setAttribute("drugTotalCost" , cost);
                 req.setAttribute("drugInfoList" , drugInfoList);
                 req.setAttribute("getDrugList" , getDrugList);
                 req.setAttribute("treat" , treat);
@@ -83,6 +89,12 @@ public class DoctorHandleServlet extends HttpServlet {
                 for(GetDrug getDrug : getDrugList) {
                     drugInfoList.add(getDrug.getDrugInfo());
                 }
+                DrugTotalCost = 0.0;
+                for(GetDrug getDrug : getDrugList) {
+                    DrugTotalCost += getDrug.getDrugTotalCost();
+                }
+                cost = Double.parseDouble(String.format("%.2f",DrugTotalCost));
+                req.setAttribute("drugTotalCost" , cost);
                 req.setAttribute("drugInfoList" , drugInfoList);
                 req.setAttribute("getDrugList" , getDrugList);
                 req.getRequestDispatcher("/jsp/doctor/getDrug.jsp").forward(req , resp);
@@ -137,9 +149,13 @@ public class DoctorHandleServlet extends HttpServlet {
                 doctorHandleService.addOneDrug(treatId , drugName , drugNum  );  // 添加一条取药记录
                 getDrugList = doctorHandleService.findGetDrugByTreatId(treatId);
                 drugInfoList = new ArrayList<>();
+                Double DrugTotalCost = 0.0;
                 for(GetDrug getDrug : getDrugList) {
                     drugInfoList.add(getDrug.getDrugInfo());
+                    DrugTotalCost += getDrug.getDrugTotalCost();
                 }
+                Double cost = Double.parseDouble(String.format("%.2f",DrugTotalCost));
+                req.setAttribute("drugTotalCost" , cost);
                 req.setAttribute("drugInfoList" , drugInfoList);
                 req.setAttribute("getDrugList" , getDrugList);
                 req.getRequestDispatcher("/jsp/doctor/getDrug.jsp").forward(req , resp);
