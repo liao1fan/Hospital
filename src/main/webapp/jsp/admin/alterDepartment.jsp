@@ -25,6 +25,7 @@
         <link href="../../css/background.css" rel="stylesheet">
         <link href="../../css/readerBlock.css" rel="stylesheet">
         <link href="../../css/menu.css" rel="stylesheet">
+        <link href="../../css/button.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
