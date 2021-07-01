@@ -72,6 +72,7 @@ a:active { color: #F0F; } /* 选定的链接 */
     color: #4f6b72;
     font-size: 17px;
     left: 12%;
+    margin-left: 16.5%;
 }
 
 #onezs {
@@ -80,6 +81,7 @@ a:active { color: #F0F; } /* 选定的链接 */
     width: 150px;
     left: 20%;
     top: 0%;
+    margin-left: 16%;
 }
 
 #twoxj {
@@ -88,6 +90,7 @@ a:active { color: #F0F; } /* 选定的链接 */
     width: 150px;
     left: 20%;
     top: 0%;
+    margin-left: 16%;
 }
 
 #medicine {
@@ -102,6 +105,7 @@ a:active { color: #F0F; } /* 选定的链接 */
     border-radius: 10px;
     border: #ccc solid 1px;
     text-align: left;
+    margin-left: 16%;
 }
 
 li {
@@ -157,6 +161,14 @@ select {
     margin-left: -65px;
     vertical-align:center;
     text-decoration: none;
+}
+
+.medicine_num {
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
+    margin-left: -28%;
 }
 
 input{
@@ -271,4 +283,13 @@ button:hover { /* 鼠标移入按钮范围时改变颜色 */
 #price {
     height: 7%;
     margin-top: 22px;
+    width: 8%;
+}
+
+.price {
+    margin-left: -19%;
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
 }
