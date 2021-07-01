@@ -11,7 +11,7 @@
     /* absolute居中的一种方法 */
     background-color: whitesmoke;
     width: 70%;
-    height: 80%;
+    height: 83%;
     border-radius: 25px;
     text-align: center;
     padding: 5px 40px;
@@ -90,6 +90,14 @@ table tr:hover{
     text-decoration: none;
     margin-top: 36px;
     margin-left: -65px;
+}
+
+.align {
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
+    margin-left: -24%;
 }
 
 input{
@@ -183,5 +191,19 @@ textarea:focus{
     height: 1px;
     margin-top: 40px;
     width: 96%;
+}
+
+#price {
+    height: 7%;
+    margin-top: 22px;
+    width: 8%;
+}
+
+.price {
+    margin-left: -19%;
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
 }
 

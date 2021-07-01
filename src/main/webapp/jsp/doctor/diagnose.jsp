@@ -63,21 +63,21 @@
 
             <table cellspacing="0">
                 <tr>
-                    <div class="patient">患者姓名:
-                        <input type="text" value="${treat.patient.name}" name="patient_name" readonly/>
+                    <div class="align">
+                        患者姓名:<input type="text" value="${treat.patient.name}" name="patient_name" readonly/>
                     </div>
                 </tr>
                 <br/>
 
                 <tr>
-                    <div class="patient">
+                    <div class="align">
                         患者性别:<input type="text" value="${treat.patient.sex}" name="patient_sex" readonly/>
                     </div>
                 </tr>
                 <br/>
 
                 <tr>
-                    <div class="patient">
+                    <div class="align">
                         患者年龄:<input type="text" value="${treat.patient.age}" name="patient_age" readonly/>
                     </div>
                 </tr>
@@ -106,8 +106,9 @@
                     </tr>
                     <br/>
                     <tr>
-                        <div class="patient">
-                            <p>药品总价:${drugTotalCost}</p>
+                        <div class="price">
+                            <a class="patient1">药品总价:</a>
+                            <textarea name="diagnose" id="price">${drugTotalCost}元</textarea>
                         </div>
                     </tr>
                     <br/>

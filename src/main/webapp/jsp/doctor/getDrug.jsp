@@ -102,7 +102,7 @@
                         </div>
                     </section>
 
-                    <a class="patient">药品数量:</a>
+                    <a class="medicine_num">药品数量:</a>
                     <select name="drugNum" id="selectNum">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -125,10 +125,11 @@
                         ${drugInfo}
                     </c:forEach>
                 </textarea>
-                <br/><br/>
+                <br/>
                 <tr>
-                    <div class="patient">
-                        <p>药品总价:${drugTotalCost}</p>
+                    <div class="price">
+                        <a class="patient1">药品总价:</a>
+                        <textarea name="diagnose" id="price">${drugTotalCost}元</textarea>
                     </div>
                 </tr>
             </div>
