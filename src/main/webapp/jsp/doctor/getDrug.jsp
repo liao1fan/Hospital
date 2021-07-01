@@ -125,10 +125,11 @@
                         ${drugInfo}
                     </c:forEach>
                 </textarea>
-                <br/><br/>
+                <br/>
                 <tr>
                     <div class="patient">
-                        <p>药品总价:${drugTotalCost}</p>
+                        <a class="patient1">药品总价:</a>
+                        <textarea name="diagnose" id="price">${drugTotalCost}元</textarea>
                     </div>
                 </tr>
             </div>

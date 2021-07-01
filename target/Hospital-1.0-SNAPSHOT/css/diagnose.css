@@ -193,3 +193,17 @@ textarea:focus{
     width: 96%;
 }
 
+#price {
+    height: 7%;
+    margin-top: 22px;
+    width: 8%;
+}
+
+.price {
+    margin-left: -19%;
+    text-align: center;
+    vertical-align: center;
+    color: #4f6b72;
+    font-size: 17px;
+}
+

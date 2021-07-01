@@ -268,3 +268,7 @@ button:hover { /* 鼠标移入按钮范围时改变颜色 */
     width: 96%;
 }
 
+#price {
+    height: 7%;
+    margin-top: 22px;
+}
