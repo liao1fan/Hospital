@@ -93,14 +93,14 @@
                     <tr>
                         <div class="patient">
                             <a class="patient1">诊断信息:</a>
-                            <textarea name="diagnose" cols="150" rows="20" align="center">${treat.diagnose}</textarea>
+                            <textarea name="diagnose" cols="150" rows="10">${treat.diagnose}</textarea>
                         </div>
                     </tr>
                     <br/>
                     <tr>
                         <div class="patient">
                             <a class="patient1">处方信息:</a>
-                            <textarea name="drug_info" cols="150" rows="10" align="center">
+                            <textarea name="drug_info" cols="150" rows="10">
                                 <c:forEach items="${drugInfoList}" var="drugInfo">
                                     ${drugInfo}
                                 </c:forEach>

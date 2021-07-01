@@ -18,20 +18,6 @@
     /* 这样padding就不会影响大小 */
 }
 
-.a {
-    font-size: 22px;
-    font-weight: 300;
-    text-decoration-style: solid;
-    color: blue;
-    cursor: pointer;     /* 鼠标样式*/
-    margin-right: 30px;
-}
-
-a:link { color: #06F; text-decoration: none; }/* 未访问的链接 */
-a:visited { color: #999; text-decoration: line-through; } /* 已访问的链接 */
-a:hover { color: #F00; text-decoration: underline; }/* 鼠标移动到链接上 */
-a:active { color: #F0F; } /* 选定的链接 */
-
 #choose {
     text-align: left;
     vertical-align: center;
