@@ -63,26 +63,34 @@
 
             <table class="table" cellspacing="0">
                 <tr>
-                    <td>医生姓名</td>
-                    <td>医生年龄</td>
-                    <td>医生性别</td>
-                    <td>患者地址</td>
-                    <td>患者电话</td>
-                    <td>患者用户名</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>性别</td>
+                    <td>职称</td>
+                    <td>专长</td>
+                    <td>用户名</td>
+                    <td>科室</td>
+                    <td>操作</td>
                 </tr>
 
 
-                <c:forEach items="${patientList}" var="patient">
+                <c:forEach items="${doctorList}" var="doctor">
                     <tr>
-                        <td>${patient.name}</td>
-                        <td>${patient.age}</td>
-                        <td>${patient.sex}</td>
-                        <td>${patient.address}</td>
-                        <td>${patient.phone}</td>
-                        <td>${patient.username}</td>
+                        <td>${doctor.name}</td>
+                        <td>${doctor.age}</td>
+                        <td>${doctor.sex}</td>
+                        <td>${doctor.title}</td>
+                        <td>${doctor.speciality}</td>
+                        <td>${doctor.department.name}</td>
+                        <td>${doctor.username}</td>
+                        <td>
+                            <a href="/admin?method=deleteDoctor&doctorId=${doctor.id}">删除</a>
+                            <a href="/admin?method=alterDoctorInfo&doctorId=${doctor.id}">修改</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
+            <button class="button" onclick="location.href='/admin?method=addDoctor'">添加医生</button>
         </div>
 
         <%@ include file="../../footer.jsp" %>

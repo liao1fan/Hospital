@@ -3,6 +3,7 @@ package com.example.repository.Impl;
 import com.example.entity.Department;
 import com.example.entity.Doctor;
 import com.example.entity.Patient;
+import com.example.repository.DepartmentRepository;
 import com.example.repository.DoctorRepository;
 import com.example.utils.JDBCTools;
 
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoctorRepositoryImpl implements DoctorRepository {
+    private DepartmentRepository departmentRepository = new DepartmentRepositoryImpl();
     @Override
     public Doctor findByDoctorId(Integer doctorId) {
         Connection connection = null;
@@ -29,13 +31,17 @@ public class DoctorRepositoryImpl implements DoctorRepository {
             statement.setInt(1 , doctorId);
             resultSet = statement.executeQuery();
             while(resultSet.next()) {
+                Department department = departmentRepository.findByDepartmentId(resultSet.getInt(7));
                 doctor = new Doctor(resultSet.getInt(1) ,// id
                         resultSet.getString(2) , //name
-                        resultSet.getString(3) , //title
-                        resultSet.getString(4) , // speciality
-                        resultSet.getString(5) , // username
-                        resultSet.getString(6)   // password
-                        ) ;
+                        resultSet.getInt(3),//age
+                        resultSet.getString(4),//sex
+                        resultSet.getString(5) , //title
+                        resultSet.getString(6) , // speciality
+                        department , // department
+                        resultSet.getString(8) , // username
+                        resultSet.getString(9)   // password
+                );
             }
 
         } catch (SQLException throwables) {
@@ -129,19 +135,23 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-        String sql = "select * from Doctor where Doctor_id = ?";
+        String sql = "select * from Doctor";
         connection = JDBCTools.getConnection();
         List<Doctor> doctorList = new ArrayList<>();
         try {
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while(resultSet.next()) {
+                Department department = departmentRepository.findByDepartmentId(resultSet.getInt(7));
                 doctorList.add(new Doctor(resultSet.getInt(1) ,// id
                         resultSet.getString(2) , //name
-                        resultSet.getString(3) , //title
-                        resultSet.getString(4) , // speciality
-                        resultSet.getString(5) , // username
-                        resultSet.getString(6)   // password
+                        resultSet.getInt(3),//age
+                        resultSet.getString(4),//sex
+                        resultSet.getString(5) , //title
+                        resultSet.getString(6) , // speciality
+                        department , // department
+                        resultSet.getString(8) , // username
+                        resultSet.getString(9)   // password
                 ));
             }
 
@@ -176,4 +186,67 @@ public class DoctorRepositoryImpl implements DoctorRepository {
         return state;
     }
 
+    @Override
+    public void add(String name, Integer age, String sex, String title, String speciality, Integer departmentId, String username, String password) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "insert into Doctor(Doctor_name,Doctor_age , Doctor_sex , Doctor_title , Doctor_speciality , Department_id , username , password) VALUES(?,?,?,?,?,?,?,?)";
+        connection = JDBCTools.getConnection();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1 , name);
+            statement.setInt(2 , age);
+            statement.setString(3 , sex);
+            statement.setString(4 , title);
+            statement.setString(5 , speciality);
+            statement.setInt(6 , departmentId);
+            statement.setString(7 , username);
+            statement.setString(8 , password);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , null);
+        }
+
+    }
+
+    @Override
+    public void alter(Integer doctorId ,Integer age, String title, String speciality, Integer departmentId) {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "update Doctor set Doctor_age = ? ,Doctor_title = ? , Doctor_speciality = ? , Department_id = ?   where Doctor_Id = ?";
+        connection = JDBCTools.getConnection();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1 , age);
+            statement.setString(2 ,title);
+            statement.setString(3 ,speciality);
+            statement.setInt(4 , departmentId);
+            statement.setInt(5 , doctorId);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , null);
+        }
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "delete from Doctor  where Doctor_Id = ?";
+        connection = JDBCTools.getConnection();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1 , id);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , null);
+        }
+    }
 }

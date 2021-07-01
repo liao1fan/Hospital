@@ -72,12 +72,12 @@
                         <td>${department.name}</td>
                         <td>${department.phone}</td>
                         <td>
-                            <a href="/admin?method=deleleDepartment&&departmentId=${department.id}">删除</a>
-                            <a href="/admin?method=alterDepartment&&departmentId=${department.id}">修改电话</a>
+                            <a href="/admin?method=alterDepartmentPhone&departmentId=${department.id}">修改电话</a>
                         </td>
                     </tr>
                 </c:forEach>
             </table>
+            <button class="button" onclick="location.href='/admin?method=addDepartment'">添加科室</button>
         </div>
 
         <%@ include file="../../footer.jsp" %>

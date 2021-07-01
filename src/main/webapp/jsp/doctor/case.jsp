@@ -24,6 +24,7 @@
 
         <link href="../../css/case.css" type="text/css" rel="stylesheet">
         <link href="../../css/background.css" rel="stylesheet">
+        <link href="../../css/menu.css" rel="stylesheet">
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
@@ -44,11 +45,11 @@
                 <a href="/doctorHandle?method=caseHandle">病例管理</a>
             </div>
 
-            <div>
+            <div class="div_menu">
                 <%--    <h2>侧边栏实例 - 页面主体向右移动</h2>--%>
                 <%--    <p>点击以下菜单图标打开侧边栏，主体内容向右偏移。主体内容添加黑色透明背景</p>--%>
                 <script>openNav()</script>
-                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; 菜单栏</span>
+                <span class="menu" onclick="openNav()">&#9776; 菜单栏</span>
             </div>
 
 

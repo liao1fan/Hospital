@@ -63,12 +63,12 @@
 
             <table class="table" cellspacing="0">
                 <tr>
-                    <td>患者姓名</td>
-                    <td>患者年龄</td>
-                    <td>患者性别</td>
-                    <td>患者地址</td>
-                    <td>患者电话</td>
-                    <td>患者用户名</td>
+                    <td>姓名</td>
+                    <td>年龄</td>
+                    <td>性别</td>
+                    <td>地址</td>
+                    <td>电话</td>
+                    <td>用户名</td>
                 </tr>
 
 

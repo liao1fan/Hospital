@@ -57,4 +57,63 @@ public class DepartmentRepositoryImpl implements DepartmentRepository {
         }
         return department;
     }
+
+    @Override
+    public void alterPhone(Integer id, String phone) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "update department set Department_Phone = ? where Department_Id = ?;";
+        connection = JDBCTools.getConnection();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1 , phone);
+            statement.setInt(2 ,id);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , null);
+        }
+    }
+
+    @Override
+    public void add(String name, String phone) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        String sql = "insert into department( department_name, department_phone) VALUES (?, ?) ";
+        connection = JDBCTools.getConnection();
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1 , name);
+            statement.setString(2 ,phone);
+            statement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , null);
+        }
+    }
+
+    @Override
+    public Department findByDepartmentName(String name) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        String sql = "select * from Department where Department_name = ?";
+        connection = JDBCTools.getConnection();
+        Department department = null;
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setString(1 , name);
+            resultSet = statement.executeQuery();
+            while(resultSet.next()) {
+                department = new Department(resultSet.getInt(1) , resultSet.getString(2),resultSet.getString(3));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection , statement , resultSet);
+        }
+        return department;
+    }
 }

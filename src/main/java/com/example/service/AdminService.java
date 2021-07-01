@@ -10,4 +10,6 @@ public interface AdminService {
     List<Patient> findAllPatient();
     List<Doctor> findAllDoctor();
     List<Department> findAllDepartment();
+    void alterDepartmentPhone(Integer id , String phone);
+    void addDoctor(String name , Integer age , String sex, String title , String speciality , String departmentName , String username , String password);
 }
