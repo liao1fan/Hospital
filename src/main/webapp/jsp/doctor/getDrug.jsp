@@ -126,8 +126,11 @@
                     </c:forEach>
                 </textarea>
                 <br/><br/>
-                <p class="patient1"> 药品总价:${drugTotalCost}</p>
-
+                <tr>
+                    <div class="patient">
+                        <p>药品总价:${drugTotalCost}</p>
+                    </div>
+                </tr>
             </div>
             <br/><br/>
             <button onclick="location.href='/doctorHandle?method=getDrug&treatId=${treatId}'">继续取药</button>

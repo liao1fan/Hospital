@@ -225,7 +225,6 @@ button:hover { /* 鼠标移入按钮范围时改变颜色 */
     color: white; /* 字体颜色 */
     font-size: 17px; /* 字体大小 */
     margin-left: 30px;
-    margin-top: 20px;
     margin-bottom: 12px;
 }
 .button:hover { /* 鼠标移入按钮范围时改变颜色 */
