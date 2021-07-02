@@ -916,9 +916,7 @@
     <table id="290" parent="2" name="drug">
       <Comment>药品信息表</Comment>
     </table>
-    <table id="291" parent="2" name="getdrug">
-      <Comment>取药信息表</Comment>
-    </table>
+    <table id="291" parent="2" name="getdrug"/>
     <table id="292" parent="2" name="patient">
       <Comment>患者信息表</Comment>
     </table>
