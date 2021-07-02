@@ -95,7 +95,7 @@
                                 <input type="text" id="twoxj" class="qc-search" placeholder="输入药品名称">
                                 <ul class="qc-dromodel_1" id="medicine">
                                     <c:forEach items="${drugList}" var="drug">
-                                        <li><a href="javascript:;" id="drug">${drug.name}</a></li>
+                                        <li class="ziti"><a href="javascript:;" id="drug">${drug.name}</a></li>
                                     </c:forEach>
                                 </ul>
                             </ul>
