@@ -117,5 +117,31 @@ public class TreatRepositoryImpl implements TreatRepository {
         }
     }
 
+    @Override
+    public List<Treat> findByPatientId(Integer patientId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Treat> treatList = new ArrayList<>();
+        connection = JDBCTools.getConnection();
+        String sql = "select * from treat where Patient_id = ? ";
 
+        try {
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, patientId );
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                treatList.add(new Treat(resultSet.getInt(1) ,
+                        patientRepository.findById(resultSet.getInt(2)),
+                        doctorRepository.findByDoctorId(resultSet.getInt(3)),
+                        resultSet.getTimestamp(4),
+                        resultSet.getString(5),resultSet.getString(6) ));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            JDBCTools.release(connection, statement, resultSet);
+        }
+        return treatList;
+    }
 }

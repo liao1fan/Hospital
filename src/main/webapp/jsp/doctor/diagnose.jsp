@@ -108,7 +108,7 @@
                     <tr>
                         <div class="price">
                             <a class="patient1">药品总价:</a>
-                            <textarea name="diagnose" id="price">${drugTotalCost}元</textarea>
+                            <textarea name="diagnose" id="price">${drugTotalCost}</textarea>
                         </div>
                     </tr>
                     <br/>

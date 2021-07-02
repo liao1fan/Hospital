@@ -120,16 +120,12 @@
 
             <div class="patient">
                 <a class="patient1"> 药品信息:</a>
-                <textarea name="drugInfo" cols="150" rows="20" align="center">
-                    <c:forEach items="${drugInfoList}" var="drugInfo">
-                        ${drugInfo}
-                    </c:forEach>
-                </textarea>
+                <textarea name="drug_info" cols="150" rows="10"><c:forEach items="${drugInfoList}" var="drugInfo">${drugInfo}&#13;</c:forEach></textarea>
                 <br/>
                 <tr>
                     <div class="price">
                         <a class="patient1">药品总价:</a>
-                        <textarea name="diagnose" id="price">${drugTotalCost}元</textarea>
+                        <textarea name="diagnose" id="price">${drugTotalCost}</textarea>
                     </div>
                 </tr>
             </div>

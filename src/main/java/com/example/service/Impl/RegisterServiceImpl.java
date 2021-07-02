@@ -3,14 +3,9 @@ package com.example.service.Impl;
 import com.example.entity.Department;
 import com.example.entity.Doctor;
 import com.example.entity.Doctor_state;
-import com.example.repository.DepartmentRepository;
-import com.example.repository.DoctorRepository;
-import com.example.repository.DoctorStateRepository;
-import com.example.repository.Impl.DepartmentRepositoryImpl;
-import com.example.repository.Impl.DoctorRepositoryImpl;
-import com.example.repository.Impl.DoctorStateRepositoryImpl;
-import com.example.repository.Impl.RegisterRepositoryImpl;
-import com.example.repository.RegisterRepository;
+import com.example.entity.Treat;
+import com.example.repository.*;
+import com.example.repository.Impl.*;
 import com.example.service.RegisterService;
 
 import java.util.Date;
@@ -26,6 +21,8 @@ public class RegisterServiceImpl implements RegisterService {
     private static DoctorStateRepository doctorStateRepository = new DoctorStateRepositoryImpl();
 
     private static RegisterRepository registerRepository = new RegisterRepositoryImpl();
+
+    private static TreatRepository treatRepository = new TreatRepositoryImpl();
 
     @Override
     public List<Doctor> findAllDoctor(Integer departmentId) {
@@ -65,5 +62,15 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public void changeNum(Integer doctorStateId) {
         doctorStateRepository.changeNum(doctorStateId);
+    }
+
+    @Override
+    public List<Treat> findAllTreatByPatientId(Integer patientId) {
+        return treatRepository.findByPatientId(patientId);
+    }
+
+    @Override
+    public Treat findTreatByTreatId(Integer treatId) {
+        return treatRepository.findById(treatId);
     }
 }

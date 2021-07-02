@@ -25,37 +25,6 @@
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
 
-        <%--  	<script type="text/javascript">--%>
-        <%--		$(function(){--%>
-        <%--			$("#next").click(function(){--%>
-        <%--				var pages = parseInt($("#pages").html());--%>
-        <%--				var page = parseInt($("#currentPage").html());--%>
-        <%--				if(page == pages){--%>
-        <%--					return;--%>
-        <%--				}--%>
-        <%--				page++;--%>
-        <%--				location.href = "/book?page="+page;--%>
-        <%--			})--%>
-
-        <%--			$("#previous").click(function () {--%>
-        <%--				var page = parseInt($("#currentPage").html());--%>
-        <%--				if(page == 1){--%>
-        <%--					return;--%>
-        <%--				}--%>
-        <%--				page--;--%>
-        <%--				location.href = "/book?page="+page;--%>
-        <%--			})--%>
-
-        <%--			$("#first").click(function () {--%>
-        <%--				location.href = "/book?page=1";--%>
-        <%--			})--%>
-
-        <%--			$("#last").click(function(){--%>
-        <%--				var pages = parseInt($("#pages").html());--%>
-        <%--				location.href = "/book?page="+pages;--%>
-        <%--			})--%>
-        <%--		})--%>
-        <%--	</script>--%>
         <%@ include file="../../heading.jsp" %>
     </head>
 
@@ -69,7 +38,7 @@
                 </div>
 
                 <div class="readerBlock2">
-                    欢迎回来&nbsp;: <a class="a" href="/book?method=findAllMedicalRecord">${sessionScope.patient.name}</a>&nbsp;
+                    欢迎回来&nbsp;: <a class="a" href="/register?method=patientCase&patientId=${sessionScope.patient.id}">${sessionScope.patient.name}</a>&nbsp;
                     <a class="a" href="/logout">注销</a>
                 </div>
                 </a>
