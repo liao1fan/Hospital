@@ -26,7 +26,7 @@
 
             <div>
                 <p>
-                    医生年龄:<input type="text" name="age">
+                    医生年龄:<input type="text" name="age" value="${doctor.age}">
                 </p>
             </div>
 
@@ -38,25 +38,25 @@
 
             <div>
                 <p>
-                    医生职称:<input type="text" name="title">
+                    医生职称:<input type="text" name="title" value="${doctor.title}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生专长:<input type="text" name="speciality">
+                    医生专长:<input type="text" name="speciality" value="${doctor.speciality}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生科室:<input type="text" name="departmentName">
+                    医生科室:<input type="text" name="departmentName" value="${doctor.department.name}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    用户名:<input type="text" name="username" value="${doctor.username}" readonly>
+                    用户名:<input type="text" name="username" value="${doctor.username}" >
                 </p>
             </div>
 

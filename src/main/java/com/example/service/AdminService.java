@@ -12,4 +12,5 @@ public interface AdminService {
     List<Department> findAllDepartment();
     void alterDepartmentPhone(Integer id , String phone);
     void addDoctor(String name , Integer age , String sex, String title , String speciality , String departmentName , String username , String password);
+    void addPatient(String name ,Integer age ,String sex ,String  address ,String  phone ,String  username ,String  password);
 }

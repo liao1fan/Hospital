@@ -8,6 +8,8 @@ import com.example.repository.DepartmentRepository;
 import com.example.repository.DoctorRepository;
 import com.example.repository.Impl.DepartmentRepositoryImpl;
 import com.example.repository.Impl.DoctorRepositoryImpl;
+import com.example.repository.Impl.PatientRepositoryImpl;
+import com.example.repository.PatientRepository;
 import com.example.service.AdminService;
 import com.example.service.Impl.AdminServiceImpl;
 
@@ -27,9 +29,10 @@ import java.util.List;
 */
 @WebServlet("/admin")
 public class AdminServlet extends HttpServlet {
-    private AdminService adminService = new AdminServiceImpl();
-    private DepartmentRepository departmentRepository = new DepartmentRepositoryImpl();
-    private DoctorRepository doctorRepository = new DoctorRepositoryImpl();
+    private static AdminService adminService = new AdminServiceImpl();
+    private static DepartmentRepository departmentRepository = new DepartmentRepositoryImpl();
+    private static DoctorRepository doctorRepository = new DoctorRepositoryImpl();
+    private static PatientRepository patientRepository = new PatientRepositoryImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -81,6 +84,20 @@ public class AdminServlet extends HttpServlet {
                 req.setAttribute("doctor" , doctor);
                 req.getRequestDispatcher("/jsp/admin/alterDoctorInfo.jsp").forward(req , resp);
                 break;
+            case "deletePatient":
+                Integer patientId = Integer.parseInt(req.getParameter("patientId"));
+                patientRepository.deleteById(patientId);
+                resp.sendRedirect("/admin");
+                break;
+            case "alterPatientInfo":
+                patientId = Integer.parseInt(req.getParameter("patientId"));
+                Patient patient = patientRepository.findById(patientId);
+                req.setAttribute("patient" , patient);
+                req.getRequestDispatcher("/jsp/admin/alterPatientInfo.jsp").forward(req , resp);
+                break;
+            case "addPatient":
+                resp.sendRedirect("jsp/admin/addPatient.jsp");
+                break;
         }
     }
 
@@ -121,9 +138,30 @@ public class AdminServlet extends HttpServlet {
                 title = req.getParameter("title");
                 speciality = req.getParameter("speciality");
                 departmentName = req.getParameter("departmentName");
+                username = req.getParameter("username");
                 departmentId = departmentRepository.findByDepartmentName(departmentName).getId();
-                doctorRepository.alter(doctorId , age , title , speciality , departmentId );
+                doctorRepository.alter(doctorId , age , title , speciality ,username, departmentId );
                 resp.sendRedirect("/admin?method=alterDoctor");
+                break;
+            case "addPatient":
+                name = req.getParameter("name");
+                age = Integer.parseInt(req.getParameter("age"));
+                sex = req.getParameter("sex");
+                String address = req.getParameter("address");
+                phone = req.getParameter("phone");
+                username = req.getParameter("username");
+                password = req.getParameter("password");
+                adminService.addPatient(name , age , sex ,address , phone , username , password);
+                resp.sendRedirect("/admin");
+                break;
+            case "alterPatient":
+                Integer patientId = Integer.parseInt(req.getParameter("patientId"));
+                age = Integer.parseInt(req.getParameter("age"));
+                address = req.getParameter("address");
+                phone = req.getParameter("phone");
+                username = req.getParameter("username");
+                patientRepository.alter(patientId , age , address, phone , username );
+                resp.sendRedirect("/admin");
                 break;
         }
     }

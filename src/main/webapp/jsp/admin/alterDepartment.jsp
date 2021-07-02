@@ -12,7 +12,7 @@
     <head>
         <base href="<%=basePath%>">
 
-        <title>修改科室信息</title>
+        <title>科室信息</title>
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="expires" content="0">
@@ -39,11 +39,11 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="/admin">查询患者信息</a>
+                <a href="/admin">患者信息</a>
                 <br/><br/>
-                <a href="/admin?method=alterDoctor">修改医生信息</a>
+                <a href="/admin?method=alterDoctor">医生信息</a>
                 <br/><br/>
-                <a href="/admin?method=alterDepartment">修改科室信息</a>
+                <a href="/admin?method=alterDepartment">科室信息</a>
             </div>
 
             <div class="div_menu">
@@ -55,7 +55,7 @@
 
             <div class="navigation">
                 <div class="readerBlock1">
-                    当前位置:&nbsp;&nbsp;修改科室信息
+                    当前位置:&nbsp;&nbsp;科室信息
                 </div>
 
                 <div class="readerBlock2">

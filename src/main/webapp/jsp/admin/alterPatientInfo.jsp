@@ -16,53 +16,48 @@
 
     </head>
     <body>
-        <form action="/admin?method=alterDoctor&doctorId=${doctor.id}" method="post" id="SignupForm" class="signup">
+        <form action="/admin?method=alterPatient&patientId=${patient.id}" method="post" id="SignupForm" class="signup">
 
             <div>
                 <p>
-                    医生姓名:<input type="text" name="name" value="${doctor.name}" readonly>
+                    患者姓名:<input type="text" name="name" value="${patient.name}" readonly>
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生年龄:<input type="text" name="age" value="${doctor.age}">
+                    患者年龄:<input type="text" name="age" value="${patient.age}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生性别:<input type="text" name="sex" value="${doctor.sex}" readonly>
+                    患者性别:<input type="text" name="sex" value="${patient.sex}" readonly>
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生职称:<input type="text" name="title" value="${doctor.title}">
+                    患者地址:<input type="text" name="address" value="${patient.address}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生专长:<input type="text" name="speciality" value="${doctor.speciality}">
+                    患者电话:<input type="text" name="phone" value="${patient.phone}">
+                </p>
+            </div>
+
+
+            <div>
+                <p>
+                    用户名:<input type="text" name="username" value="${patient.username}">
                 </p>
             </div>
 
             <div>
                 <p>
-                    医生科室:<input type="text" name="departmentName" value="${doctor.department.name}">
-                </p>
-            </div>
-
-            <div>
-                <p>
-                    用户名:<input type="text" name="username" value="${doctor.username}" >
-                </p>
-            </div>
-
-            <div>
-                <p>
-                    密码:<input type="password" name="password" value="${doctor.password}" readonly>
+                    密码:<input type="password" name="password" value="${patient.password}" readonly>
                 </p>
             </div>
 

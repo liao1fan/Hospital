@@ -25,6 +25,8 @@
         <link href="../../css/background.css" rel="stylesheet">
         <link href="../../css/readerBlock.css" rel="stylesheet">
         <link href="../../css/menu.css" rel="stylesheet">
+        <link href="../../css/button.css" rel="stylesheet">
+
 
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <%@ include file="../../leftHead.jsp" %>
@@ -38,11 +40,11 @@
             <!--侧栏界面设计-->
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a href="/admin">查询患者信息</a>
+                <a href="/admin">患者信息</a>
                 <br/><br/>
-                <a href="/admin?method=alterDoctor">修改医生信息</a>
+                <a href="/admin?method=alterDoctor">医生信息</a>
                 <br/><br/>
-                <a href="/admin?method=alterDepartment">修改科室信息</a>
+                <a href="/admin?method=alterDepartment">科室信息</a>
             </div>
 
             <div class="div_menu">
@@ -54,7 +56,7 @@
 
             <div class="navigation">
                 <div class="readerBlock1">
-                    当前位置:&nbsp;&nbsp;查询患者信息
+                    当前位置:&nbsp;&nbsp;患者信息
                 </div>
 
                 <div class="readerBlock2">
@@ -70,6 +72,7 @@
                     <td>地址</td>
                     <td>电话</td>
                     <td>用户名</td>
+                    <td>操作</td>
                 </tr>
 
 
@@ -81,9 +84,14 @@
                         <td>${patient.address}</td>
                         <td>${patient.phone}</td>
                         <td>${patient.username}</td>
+                        <td>
+                            <a href="/admin?method=deletePatient&patientId=${patient.id}">删除</a>
+                            <a href="/admin?method=alterPatientInfo&patientId=${patient.id}">修改</a>
+                        </td>
                     </tr>
                 </c:forEach>
             </table>
+                <button class="btn1" onclick="location.href='/admin?method=addPatient'">添加患者</button>
         </div>
 
         <%@ include file="../../footer.jsp" %>

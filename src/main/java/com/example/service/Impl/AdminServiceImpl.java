@@ -44,4 +44,9 @@ public class AdminServiceImpl implements AdminService {
         Department department = departmentRepository.findByDepartmentName(departmentName);
         doctorRepository.add(name , age , sex , title ,speciality , department.getId() , username , password);
     }
+
+    @Override
+    public void addPatient(String name, Integer age, String sex, String address, String phone, String username, String password) {
+        patientRepository.add(name , age , sex , address , phone , username , password);
+    }
 }

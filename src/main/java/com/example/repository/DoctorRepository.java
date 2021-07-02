@@ -12,6 +12,6 @@ public interface DoctorRepository {
     public boolean findByUsername(String username);
     public List<Doctor> findAll();
     public void add(String name , Integer age , String sex , String title , String speciality , Integer departmentId , String username , String password);
-    public void alter(Integer  doctorId,Integer age , String title, String speciality , Integer departmentId);
+    public void alter(Integer  doctorId,Integer age , String title, String speciality , String username ,Integer departmentId);
     public void deleteById(Integer id);
 }

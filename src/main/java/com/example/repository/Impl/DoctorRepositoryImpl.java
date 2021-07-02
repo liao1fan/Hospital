@@ -212,11 +212,11 @@ public class DoctorRepositoryImpl implements DoctorRepository {
     }
 
     @Override
-    public void alter(Integer doctorId ,Integer age, String title, String speciality, Integer departmentId) {
+    public void alter(Integer doctorId ,Integer age, String title, String speciality, String username ,Integer departmentId) {
 
         Connection connection = null;
         PreparedStatement statement = null;
-        String sql = "update Doctor set Doctor_age = ? ,Doctor_title = ? , Doctor_speciality = ? , Department_id = ?   where Doctor_Id = ?";
+        String sql = "update Doctor set Doctor_age = ? ,Doctor_title = ? , Doctor_speciality = ? , Department_id = ?  ,username = ? where Doctor_Id = ?";
         connection = JDBCTools.getConnection();
         try {
             statement = connection.prepareStatement(sql);
@@ -224,7 +224,8 @@ public class DoctorRepositoryImpl implements DoctorRepository {
             statement.setString(2 ,title);
             statement.setString(3 ,speciality);
             statement.setInt(4 , departmentId);
-            statement.setInt(5 , doctorId);
+            statement.setString(5 , username);
+            statement.setInt(6 , doctorId);
             statement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
