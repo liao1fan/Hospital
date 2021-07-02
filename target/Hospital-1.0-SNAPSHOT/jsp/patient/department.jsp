@@ -11,7 +11,7 @@
     <head>
         <base href="<%=basePath%>">
 
-        <title>My JSP 'register.jsp' starting page</title>
+        <title>选择科室</title>
         <meta http-equiv="pragma" content="no-cache">
         <meta http-equiv="cache-control" content="no-cache">
         <meta http-equiv="expires" content="0">

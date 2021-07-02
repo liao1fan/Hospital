@@ -1,5 +1,9 @@
 package com.example.entity;
 
+/**
+ 科室实体，对应着department表
+ */
+
 public class Department {
     private Integer id;
     private String name;

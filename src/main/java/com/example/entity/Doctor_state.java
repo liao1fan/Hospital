@@ -2,12 +2,18 @@ package com.example.entity;
 
 import java.util.Date;
 
+/**
+  医生挂号状态实体，对应着doctor_state表
+ */
+
+
+
 public class Doctor_state {
     private Integer id;
     private Doctor doctor;
-    private Date date;
-    private Double fee;
-    private Integer num;
+    private Date date;   // 可挂号的时间
+    private Double fee;  // 挂号费
+    private Integer num; // 号码剩余数量
 
     public Doctor_state() {
     }

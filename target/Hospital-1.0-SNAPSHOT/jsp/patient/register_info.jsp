@@ -26,8 +26,8 @@
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
         <script type="text/javascript">
             function jump() {
-                window.confirm('挂号成功! 将返回登录页面!');
                 window.location.href = '/register?method=addRegister&doctorStateId=${doctor_state.id}';
+                window.confirm('挂号成功! 将返回登录页面!');
                 window.location.href = 'login1.jsp';
             }
         </script>

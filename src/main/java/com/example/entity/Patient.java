@@ -1,6 +1,8 @@
 package com.example.entity;
 
-import com.example.utils.Type;
+/**
+ 患者实体，对应着patient表
+ */
 
 public class Patient {
     private Integer id;

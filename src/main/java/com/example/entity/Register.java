@@ -2,6 +2,11 @@ package com.example.entity;
 
 import java.util.Date;
 
+/**
+ 挂号关系实体，医患之间的挂号信息，对应于register表
+ */
+
+
 public class Register {
     private Integer id;
     private Patient patient;

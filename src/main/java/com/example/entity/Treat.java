@@ -6,6 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+/**
+ 看病关系实体，医生为患者看病的信息，对应着treat表
+ */
+
+
 public class Treat {
     private Integer id;
     private Patient patient;

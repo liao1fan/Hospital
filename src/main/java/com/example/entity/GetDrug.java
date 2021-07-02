@@ -6,6 +6,10 @@ import com.example.repository.Impl.DrugRepositoryImpl;
 import java.util.Iterator;
 import java.util.Map;
 
+/**
+  取药实体，
+ */
+
 public class GetDrug {
     private Integer id;
     private Treat treat;

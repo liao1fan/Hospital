@@ -1,5 +1,10 @@
 package com.example.entity;
 
+/**
+ 管理员实体，对应着admin表
+ */
+
+
 public class Admin {
     private Integer id;
     private String username;

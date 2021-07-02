@@ -1,5 +1,10 @@
 package com.example.entity;
 
+/**
+ 药品实体，对应着drug表
+ */
+
+
 public class Drug {
     private Integer id;
     private String name;

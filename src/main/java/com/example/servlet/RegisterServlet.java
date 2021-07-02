@@ -46,10 +46,6 @@ public class RegisterServlet extends HttpServlet {
             case "findAllDoctor": //进入科室，选择日期和医生
                 Integer departmentId = Integer.parseInt(req.getParameter("departmentId"));
                 List<Doctor_state> doctorStateList = registerService.findAllDateByDepartmentId(departmentId);
-//                List<Date> dateList = new ArrayList<>();
-//                for(Doctor_state doctorState :doctorStateList) {
-//                    dateList.add(doctorState.getDate());
-//                }
                 req.setAttribute("doctorStateList" ,  doctorStateList);
                 Date dateFirst = doctorStateList.get(0).getDate();
                 // 默认显示最早日期的所有医生
@@ -65,7 +61,7 @@ public class RegisterServlet extends HttpServlet {
 //                req.setAttribute("dateList" , dateList);
                 req.getRequestDispatcher("/jsp/patient/doctor.jsp").forward(req , resp);
                 break;
-            case "updateState":
+            case "updateState": // 刷新当前日期的医生列表
                 String idStr = req.getParameter("id"); // 日期的字符串表示
                 Integer depId = Integer.parseInt(req.getParameter("departmentId"));
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");//注意月份是MM

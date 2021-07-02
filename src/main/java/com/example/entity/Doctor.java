@@ -1,5 +1,10 @@
 package com.example.entity;
 
+/**
+ 医生实体，对应着doctor表
+ */
+
+
 public class Doctor {
     private Integer id;
     private String name;
