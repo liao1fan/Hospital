@@ -293,3 +293,7 @@ button:hover { /* 鼠标移入按钮范围时改变颜色 */
     color: #4f6b72;
     font-size: 17px;
 }
+
+.ziti {
+    font-size: 10px;
+}
