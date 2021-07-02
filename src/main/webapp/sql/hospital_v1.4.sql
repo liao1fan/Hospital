@@ -1,5 +1,5 @@
 -- 导出 hospital 的数据库结构
-CREATE DATABASE IF NOT EXISTS `hospital` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE IF NOT EXISTS `hospital`;
 USE `hospital`;
 
 -- 导出  表 hospital.admin 结构
@@ -146,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `getdrug` (
     KEY `Drug_id` (`Drug_id`),
     KEY `Treat_id` (`Treat_id`),
     CONSTRAINT `getdrug_ibfk_1` FOREIGN KEY (`Drug_id`) REFERENCES `drug` (`Drug_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT `getdrug_ibfk_2` FOREIGN KEY (`Treat_id`) REFERENCES `treat` (`Treat_id`) ON DELETE CASCADE ON UPDATE CASCADE
-    ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='取药信息表';
+    CONSTRAINT `getdrug_ibfk_2` FOREIGN KEY (`Treat_id`) REFERENCES  treat(`Treat_id`) ON DELETE CASCADE ON UPDATE CASCADE
+    ) ;
 
 -- 正在导出表  hospital.getdrug 的数据：~6 rows (大约)
 
