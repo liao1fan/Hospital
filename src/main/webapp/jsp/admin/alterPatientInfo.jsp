@@ -9,7 +9,7 @@
 <%--患者用户点击注册按钮后来到注册页面--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-    <link rel="stylesheet" href="../../css/addDoctor.css">
+    <link rel="stylesheet" href="../../css/addPatient.css">
     <head>
         <title>修改医生信息</title>
         <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script>
