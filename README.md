@@ -6,3 +6,5 @@
 将Java后端在IDEA中配置完成后，启动程序，在网页中访问 "localhost:8080/login1.jsp"进入登录页面。
 
 ![image](https://user-images.githubusercontent.com/61133741/124349104-1b4c9500-dc20-11eb-93f8-7ef1f88e4ba7.png)
+
+在数据库中找到患者、医生和管理员的用户名、密码登录使用，患者也可直接点击注册页面注册新账户登良使用。
