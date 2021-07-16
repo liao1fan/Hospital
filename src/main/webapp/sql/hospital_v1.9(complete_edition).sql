@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `username` char(20) NOT NULL COMMENT '管理员用户名',
   `password` char(20) NOT NULL COMMENT '管理员密码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='管理员信息表';
+)   COMMENT='管理员信息表';
 
 -- 正在导出表  hospital.admin 的数据：~2 rows (大约)
 /*!40000 ALTER TABLE `admin` DISABLE KEYS */;
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `department` (
   `Department_name` char(100) NOT NULL COMMENT '科室名称',
   `Department_Phone` char(20) DEFAULT NULL COMMENT '科室电话',
   PRIMARY KEY (`Department_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='科室信息表';
+)  COMMENT='科室信息表';
 
 -- 正在导出表  hospital.department 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   KEY `Department_id` (`Department_id`),
   CONSTRAINT `doctor_ibfk_1` FOREIGN KEY (`Department_id`) REFERENCES `department` (`Department_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `doctor_chk_1` CHECK (((`Doctor_age` > 0) and (`Doctor_age` < 70)))
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='医生信息表';
+)  COMMENT='医生信息表';
 
 -- 正在导出表  hospital.doctor 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `doctor` DISABLE KEYS */;
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `doctor_state` (
   PRIMARY KEY (`Doctor_state_id`),
   KEY `Doctor_id` (`Doctor_id`),
   CONSTRAINT `doctor_state_ibfk_1` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='医生挂号日期状态表';
+)  COMMENT='医生挂号日期状态表';
 
 -- 正在导出表  hospital.doctor_state 的数据：~31 rows (大约)
 /*!40000 ALTER TABLE `doctor_state` DISABLE KEYS */;
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `drug` (
   PRIMARY KEY (`Drug_id`),
   KEY `Drug_price` (`Drug_price`),
   CONSTRAINT `drug_chk_1` CHECK (((`Drug_price` > 0) and (`Drug_price` <= 5000)))
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='药品信息表';
+)  COMMENT='药品信息表';
 
 -- 正在导出表  hospital.drug 的数据：~8 rows (大约)
 /*!40000 ALTER TABLE `drug` DISABLE KEYS */;
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `password` char(20) DEFAULT NULL COMMENT '患者密码',
   PRIMARY KEY (`Patient_id`),
   CONSTRAINT `patient_chk_1` CHECK (((`Patient_age` > 0) and (`Patient_age` < 100)))
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='患者信息表';
+)  COMMENT='患者信息表';
 
 -- 正在导出表  hospital.patient 的数据：~6 rows (大约)
 /*!40000 ALTER TABLE `patient` DISABLE KEYS */;
@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `register` (
   KEY `Doctor_id` (`Doctor_id`),
   CONSTRAINT `register_ibfk_1` FOREIGN KEY (`Patient_id`) REFERENCES `patient` (`Patient_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `register_ibfk_2` FOREIGN KEY (`Doctor_id`) REFERENCES `doctor` (`Doctor_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='挂号信息表';
+)  COMMENT='挂号信息表';
 
 -- 正在导出表  hospital.register 的数据：~0 rows (大约)
 /*!40000 ALTER TABLE `register` DISABLE KEYS */;
